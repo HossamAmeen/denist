@@ -1,0 +1,2 @@
+total discount of choice 
+show price before and after discount
