@@ -36,7 +36,7 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
 
 $factory->define(App\Models\Patient::class, function (Faker $faker) {
     return [
-        'name'=>$faker->text ,
+        'name'=>$faker->name ,
         'phone'=>$faker->e164PhoneNumber,
         'address'=>$faker->name,
         'age'=>rand(5,80),

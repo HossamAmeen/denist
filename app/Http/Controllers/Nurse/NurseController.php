@@ -100,11 +100,17 @@ class NurseController extends Controller
           
             $visits = $visits->where('patient_id' , request('patient_id') );
         }
+        if(request('phone') != null){
+            
+            $patients = Patient::where('phone' , 'LIKE', '%' . request('phone') . '%' )->pluck('id');
+            // return $patients;
+            $visits = $visits->whereIn('patient_id' , $patients );
+        }
         if(request('nurse_id') != null){
           
             $visits = $visits->where('nurse_id' , request('nurse_id') );
         }
-        $visits = $visits->get();
+        $visits = $visits->with('patient')->get();
         return $this->APIResponse($visits, null, 200);
     }
 
@@ -116,6 +122,12 @@ class NurseController extends Controller
     public function showPatients()
     {
         $patients = Patient::query();
+        
+        if(request('phone') != null){
+            
+            $patients = Patient::where('phone' , 'LIKE', '%' . request('phone') . '%' );
+          
+        }
         $patients = $patients->get();
         return $this->APIResponse($patients, null, 200);
     }

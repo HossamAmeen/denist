@@ -14,7 +14,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/visits?nurse_id=1",
+							"raw": "http://127.0.0.1:8000/api/nurse/visits",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -25,6 +25,7 @@
 							"port": "8000",
 							"path": [
 								"api",
+								"nurse",
 								"visits"
 							],
 							"query": [
@@ -50,7 +51,13 @@
 								},
 								{
 									"key": "nurse_id",
-									"value": "1"
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "phone",
+									"value": "1609235717365",
+									"disabled": true
 								}
 							]
 						}
@@ -139,7 +146,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/show-patients",
+							"raw": "http://127.0.0.1:8000/api/nurse/show-patients?phone=5436736",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -150,7 +157,14 @@
 							"port": "8000",
 							"path": [
 								"api",
+								"nurse",
 								"show-patients"
+							],
+							"query": [
+								{
+									"key": "phone",
+									"value": "5436736"
+								}
 							]
 						}
 					},

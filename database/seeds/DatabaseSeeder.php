@@ -30,27 +30,27 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\Doctor::create([
-            "name"=> "ahmed",
+            "name"=> "احمد",
             "user_name" => "doctor",
             "password" =>bcrypt('doctor'),
             "spiecalization"=>"رمد"
         ]);
         \App\Models\Doctor::create([
-            "name"=> "mohamed",
+            "name"=> "محمد",
             "user_name" => "doctor2",
             "password" =>bcrypt('doctor2'),
             "spiecalization"=>"اسنان"
         ]);
 
         \App\Models\Nurse::create([
-            "name"=> "yousef",
+            "name"=> "يوسف",
             "user_name" => "nurse",
             "password" =>bcrypt('nurse'),
             "doctor_id"=>1
         ]);
 
         \App\Models\Nurse::create([
-            "name"=> "mahmoud",
+            "name"=> "محمود",
             "user_name" => "nurse2",
             "password" =>bcrypt('nurse2'),
             "doctor_id"=>2
