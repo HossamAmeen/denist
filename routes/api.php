@@ -35,7 +35,10 @@ Route::middleware('cors')->group(function () {
                 Route::get('visits', 'NurseController@showVisits');
                 Route::post('add-visit', 'NurseController@addVisit');
                 Route::post('add-patient', 'NurseController@addPatient');
+                Route::put('update-patient/{patient_id}', 'NurseController@updatePatient');
+                Route::delete('delete-patient/{patient_id}', 'NurseController@deletePatient');
                 Route::get('show-patients', 'NurseController@showPatients');
+                Route::get('show-patient', 'NurseController@showPatient');
         });
         Route::post('doctor/login', 'Nurse\NurseController@doctorLogin');
 });

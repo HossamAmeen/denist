@@ -110,13 +110,15 @@ class NurseController extends Controller
           
             $visits = $visits->where('nurse_id' , request('nurse_id') );
         }
-        $visits = $visits->with('patient')->get();
+        $visits = $visits->with(['patient','nurse','doctor'])->orderBy('id' , 'DESC')->get();
         return $this->APIResponse($visits, null, 200);
     }
 
     public function addVisit(Request $request)
     {
-         Visit::create($request->all());
+        $requestArray = $request->all();
+        $requestArray['nurse_id'] = Auth::guard('nurse-api')->user()->id ?? 1  ;
+         Visit::create($requestArray);
         return $this->APIResponse(null, null, 200);
     }
     public function showPatients()
@@ -126,16 +128,56 @@ class NurseController extends Controller
         if(request('phone') != null){
             
             $patients = Patient::where('phone' , 'LIKE', '%' . request('phone') . '%' );
-          
+            if(count($patients->get()->toArray()) == 0){
+                return $this->APIResponse(null, "not found", 200);
+            }
         }
         $patients = $patients->get();
+        
+        
         return $this->APIResponse($patients, null, 200);
+    }
+    public function showPatient()
+    {
+        $patient = Patient::where('id' , request('id') )->orWhere('phone' , request('phone'))->first();
+        if(isset($patients)){
+            return $this->APIResponse(null, "not found", 200);
+        }
+        return $this->APIResponse($patient, null, 200);
     }
     public function addPatient(Request $request)
     {
+        $requestArray = $request->all();
+        $requestArray['nurse_id'] = Auth::guard('nurse-api')->user()->id ?? 1  ;
       
-        $requestArray['nurse_id'] = 1 ;
-        Patient::create($requestArray);
+        $patient =Patient::create($requestArray);
+        $data['patient_id'] = $patient->id ;
+        return $this->APIResponse($data, null, 200);
+    }
+
+    public function updatePatient($id , Request $request)
+    {
+        $patient = Patient::find($id);
+        if(isset($patient)){
+            $patient->update($request->all());
+        }
+        else
+        {
+            return $this->APIResponse(null, "this patient not found", 500);
+        }
+        return $this->APIResponse(null, null, 200);
+    }
+
+    public function deletePatient($id)
+    {
+        $patient = Patient::find($id);
+        if(isset($patient)){
+            $patient->delete();
+        }
+        else
+        {
+            return $this->APIResponse(null, "this patient not found", 500);
+        }
         return $this->APIResponse(null, null, 200);
     }
 

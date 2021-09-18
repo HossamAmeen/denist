@@ -19,7 +19,7 @@ class CreatePatientsTable extends Migration
             $table->string('phone');
             $table->integer('age');
             $table->string('address');
-            $table->string('national_id');
+            $table->string('national_id')->nullable();
             $table->text('medical_history')->nullable();
             $table->bigInteger('nurse_id')->unsigned()->nullable();
             $table->foreign('nurse_id')->references('id')->on('nurses')->onDelete('set null');
