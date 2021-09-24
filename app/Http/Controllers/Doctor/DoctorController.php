@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Nurse;
+namespace App\Http\Controllers\Doctor;
 use App\Http\Controllers\APIResponseTrait;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -8,10 +8,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\{Doctor,Nurse,Visit,Patient};
 use Auth , File;
-class NurseController extends Controller
+class DoctorController extends Controller
 {
-     use APIResponseTrait;
-     public function login()
+    use APIResponseTrait;
+    public function login(Request $request)
     {
         $validator = Validator::make(request()->all(), [
             'user_name' => 'required|string',
@@ -22,7 +22,7 @@ class NurseController extends Controller
             return $this->APIResponse(null , $validator->messages() ,  422);
         }
 
-        $nurse = Nurse::where($this->checkField(), request('user_name'))->first();
+        $nurse = Doctor::where($this->checkField(), request('user_name'))->first();
 
         if ($nurse) {
             if (Hash::check(request('password'), $nurse->password)) {
@@ -35,9 +35,7 @@ class NurseController extends Controller
         } else {
             return $this->APIResponse(null, "User name does not exist", 422);
         }
-
     }
-
     public function checkField()
     {
         // $field = 'phone';
@@ -58,7 +56,11 @@ class NurseController extends Controller
 
     public function showProfile()
     {
-        $nurse = Nurse::find(Auth::guard('nurse-api')->user()->id);
+        if(!isset(Auth::guard('doctor-api')->user()->id))
+        {
+         return $this->APIResponse(null, "you have to login", 400);
+        }
+        $nurse = Doctor::find(Auth::guard('doctor-api')->user()->id);
         
         return $this->APIResponse($nurse, null, 200);
     }
@@ -66,19 +68,22 @@ class NurseController extends Controller
     public function updateProfile(Request $request)
     {
 
+       if(!isset(Auth::guard('doctor-api')->user()->id))
+       {
+        return $this->APIResponse(null, "you have to login", 400);
+       }
+        $vendor = Doctor::find(Auth::guard('doctor-api')->user()->id);
+      
        
-        $vendor = Nurse::find(Auth::guard('nurse-api')->user()->id);
         $requestArray = $request->all();
 
       
         if(isset($request->password))
          $requestArray['password'] = bcrypt($request->password);
+
         $vendor->update($requestArray);
         return $this->APIResponse($vendor, null, 200);
     }
-
     
-   
 
-   
 }

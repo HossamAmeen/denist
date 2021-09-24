@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Doctor extends Authenticatable
 {
     use HasApiTokens , SoftDeletes;
+    protected $fillable = ['name','user_name','password','spiecalization'];
      protected $hidden = [
          'user_id',"created_at" , 'updated_at','deleted_at' 
     ];

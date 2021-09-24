@@ -31,16 +31,42 @@ Route::middleware('cors')->group(function () {
                 Route::post('login', 'NurseController@login');
                 Route::get('profile', 'NurseController@showProfile');
                 Route::put('update-profile', 'NurseController@updateProfile');
-                Route::get('doctors', 'NurseController@showDoctors');
-                Route::get('visits', 'NurseController@showVisits');
-                Route::post('add-visit', 'NurseController@addVisit');
-                Route::post('add-patient', 'NurseController@addPatient');
-                Route::put('update-patient/{patient_id}', 'NurseController@updatePatient');
-                Route::delete('delete-patient/{patient_id}', 'NurseController@deletePatient');
-                Route::get('show-patients', 'NurseController@showPatients');
-                Route::get('show-patient', 'NurseController@showPatient');
+                                /////////////// nurse with visits
+                Route::get('doctors', 'NurseVisitController@showDoctors');
+                Route::resource('visits' ,'NurseVisitController' );
+                                /////////////// nurse with patients
+                Route::resource('patients' ,'NursePatientController' );
+
+
+                /////////////// doctor
+                
+                
+                
         });
-        Route::post('doctor/login', 'Nurse\NurseController@doctorLogin');
+        Route::prefix('doctor')->namespace('Doctor')->group(function(){
+                Route::post('login', 'DoctorController@login');
+                Route::put('update-profile', 'DoctorController@updateProfile');
+                Route::get('show-enter-patients', 'DoctorPatientController@showEnterPatient');
+                Route::get('show-patients-visits/{patientId}', 'DoctorPatientController@showPatientVisits');
+                Route::get('show-visit-detials/{visitId}', 'DoctorPatientController@showVisitDetials');
+                Route::get('show-operations', 'DoctorPatientController@showOperations');
+                Route::post('initial-exam/{patientId}', 'DoctorPatientController@initialExam');
+        });
 });
 
 
+/**
+ * 
+ * 
+ *  $patient = Patient::where('id' , $id );
+        if(request('phone') != null){
+        $patient = $patient->orWhere('phone' , 'LIKE', '%' . request('phone') . '%' );
+        }
+        $patient = $patient->first();
+        // return $patient;
+        if(isset($patient)){
+            return $this->APIResponse($patient, null, 200);
+        }
+        return $this->APIResponse(null, "not found", 200);
+
+ */

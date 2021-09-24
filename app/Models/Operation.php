@@ -4,7 +4,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
-class Patients extends Model
+class Operation extends Model
 {
      use SoftDeletes;
      protected $hidden = [
@@ -12,5 +12,9 @@ class Patients extends Model
     ];
     public function user(){
         return $this->belongsTo(User::class);
+    }
+    public function operations()
+    {
+        return $this->hasMany(Operation::class);
     }
 }

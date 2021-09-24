@@ -56,6 +56,41 @@ class DatabaseSeeder extends Seeder
             "doctor_id"=>2
         ]);
 
+        \App\Models\Operation::create([
+            "name"=> "حشو",
+        ]);
+        \App\Models\Operation::create([
+            "name"=> "علاج جذور",
+        ]);
+
+        \App\Models\Operation::create([
+            "name"=> "خلع",
+        ]);
+
+        \App\Models\Operation::create([
+            "name"=> "simple",
+            "cost"=>100,
+            "operation_id"=>3
+        ]);
+        \App\Models\Operation::create([
+            "name"=> "impaction",
+            "cost"=>100,
+            "operation_id"=>3
+        ]);
+
+        \App\Models\Operation::create([
+            "name"=> "طربوش",
+        ]);
+        \App\Models\Operation::create([
+            "name"=> "PFM",
+            "cost"=>100,
+            "operation_id"=>4
+        ]);
+        \App\Models\Operation::create([
+            "name"=> "Ziscer",
+            "cost"=>300,
+            "operation_id"=>4
+        ]);
         factory('App\Models\Patient',10)->create();
         factory('App\Models\Visit',50)->create();
         }
