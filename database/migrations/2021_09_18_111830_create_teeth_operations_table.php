@@ -16,8 +16,16 @@ class CreateTeethOperationsTable extends Migration
         Schema::create('teeth_operations', function (Blueprint $table) {
             $table->id();
             $table->string('operation')->nullable();
+            $table->string('cost')->nullable();
+
+            $table->string('name')->nullable();
+            $table->string('number')->nullable();
+            
             $table->bigInteger('patient_id')->unsigned()->nullable();
             $table->foreign('patient_id')->references('id')->on('patients')->onDelete('set null');
+
+            $table->bigInteger('visit_id')->unsigned()->nullable();
+            $table->foreign('visit_id')->references('id')->on('visits')->onDelete('set null');
 
             $table->bigInteger('teeth_id')->unsigned()->nullable();
             $table->foreign('teeth_id')->references('id')->on('teeths')->onDelete('set null');

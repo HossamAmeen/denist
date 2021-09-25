@@ -51,6 +51,7 @@ Route::middleware('cors')->group(function () {
                 Route::get('show-visit-detials/{visitId}', 'DoctorPatientController@showVisitDetials');
                 Route::get('show-operations', 'DoctorPatientController@showOperations');
                 Route::post('initial-exam/{patientId}', 'DoctorPatientController@initialExam');
+                Route::post('set-operation-teeth/{patientId}', 'DoctorPatientController@setOperationTeeth');
         });
 });
 

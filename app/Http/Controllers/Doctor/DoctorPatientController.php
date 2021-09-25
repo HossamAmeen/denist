@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Doctor;
 use App\Http\Controllers\APIResponseTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{Doctor,Nurse,Visit,Patient,Teeth,Operation};
+use App\Models\{Doctor,Nurse,Visit,Patient,Teeth,Operation,TeethOperation};
 use Auth , File;
 class DoctorPatientController extends Controller
 {
@@ -71,5 +71,20 @@ class DoctorPatientController extends Controller
         ->where('operation_id' , null)
         ->get();
         return $this->APIResponse($operations, null, 200);
+    }
+    public function setOperationTeeth(Request $request ,$patientId)
+    {
+        $teeth_id = Teeth::where(['patient_id' => $patientId  , 'name' => $request->teeth_name ])->pluck('id')->first();
+
+        TeethOperation::create([
+            // 'name'=>$request->teeth_name ,
+            // 'number'=>$request->teeth_number ,
+            'operation'=>$request->operation ,
+            'cost' =>$request->cost ,
+            'patient_id'=>$patientId,
+            'visit_id'=> $request->visit_id,
+            'teeth_id'=>$teeth_id
+        ]);
+        return $this->APIResponse(null, null, 200);
     }
 }
