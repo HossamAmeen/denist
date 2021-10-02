@@ -73,15 +73,25 @@ class DoctorPatientController extends Controller
         ->get();
         return $this->APIResponse($operations, null, 200);
     }
-    public function setOperationTeeth(Request $request ,$teethId)
+    public function storeOperationTeeth(Request $request ,$teethId)
     {
-        TeethOperation::create([
+        $operation = TeethOperation::create([
             'operation'=>$request->operation ,
             'cost' =>$request->cost ,
             'patient_id'=>$request->patient_id,
             'visit_id'=> $request->visit_id,
             'teeth_id'=>$teethId
         ]);
+        $data['operation_id'] = $operation->id;
+        return $this->APIResponse($data, null, 200);
+    }
+    public function updateOperationTeeth(Request $request , $operationId)
+    {
+        $operation = TeethOperation::find($operationId);
+        if(isset($operation)){
+            $operation->update(['cost'=>($request->cost - ($request->discount != null ? $request->discount : 0  
+            ) ) ]);  
+        }
         return $this->APIResponse(null, null, 200);
     }
 }
