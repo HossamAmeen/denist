@@ -98,11 +98,11 @@ class DatabaseSeeder extends Seeder
             'age'=>5,
             'Nurse_id'=>1,           
         ]);
-        $teethLetterArray = range('a','t');
-        for ($i=0; $i <count($teethLetterArray) ; $i++) { 
+      
+        for ($i=0; $i <32 ; $i++) { 
             \App\Models\Teeth::create(
                 [
-                    'name'=>$teethLetterArray[$i] ,
+                    
                     'initial_status'=>"good",
                     'patient_id'=>1 
                 ]

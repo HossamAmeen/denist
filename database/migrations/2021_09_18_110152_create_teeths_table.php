@@ -15,8 +15,6 @@ class CreateTeethsTable extends Migration
     {
         Schema::create('teeths', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('number')->nullable();
             $table->string('initial_status')->nullable();
             $table->string('status')->nullable();
 

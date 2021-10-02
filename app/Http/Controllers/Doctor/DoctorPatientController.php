@@ -73,18 +73,14 @@ class DoctorPatientController extends Controller
         ->get();
         return $this->APIResponse($operations, null, 200);
     }
-    public function setOperationTeeth(Request $request ,$patientId)
+    public function setOperationTeeth(Request $request ,$teethId)
     {
-        $teeth_id = Teeth::where(['patient_id' => $patientId  , 'name' => $request->teeth_name ])->pluck('id')->first();
-
         TeethOperation::create([
-            // 'name'=>$request->teeth_name ,
-            // 'number'=>$request->teeth_number ,
             'operation'=>$request->operation ,
             'cost' =>$request->cost ,
-            'patient_id'=>$patientId,
+            'patient_id'=>$request->patient_id,
             'visit_id'=> $request->visit_id,
-            'teeth_id'=>$teeth_id
+            'teeth_id'=>$teethId
         ]);
         return $this->APIResponse(null, null, 200);
     }

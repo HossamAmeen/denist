@@ -54,17 +54,17 @@ class NursePatientController extends Controller
       
         $patient =Patient::create($requestArray);
         if($patient->age < 6)
-        $teethLetterArray = range('a','t');
+        $teethNames = range('a','e');
         elseif($patient->age > 12)
         {
-            $teethLetterArray =array_merge(range(11,18) , range(21,28) , range(31,38) , range(41,48)); 
-            // $teethLetterArray[] =range(21,28); 
-            // $teethLetterArray[] =range(31,38); 
-            // $teethLetterArray[] =range(41,48); 
-            // range('','','','','','','','','','','','','','','','','','','','','','','','','',
-            // '','','','','','','','','','','','','','','','','','','','','','','','','','','',);
+            $teethNames = range(1,8);
+            
+            
         }
-       
+        $teethLetterArray['ll'] =$teethNames;
+        $teethLetterArray['lr'] =$teethNames; 
+        $teethLetterArray['ul'] =$teethNames; 
+        $teethLetterArray['ur'] =$teethNames; 
         for ($i=0; $i <count($teethLetterArray) ; $i++) { 
             Teeth::create(
                 [
