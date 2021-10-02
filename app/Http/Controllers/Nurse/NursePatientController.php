@@ -61,14 +61,11 @@ class NursePatientController extends Controller
             
             
         }
-        $teethLetterArray['ll'] =$teethNames;
-        $teethLetterArray['lr'] =$teethNames; 
-        $teethLetterArray['ul'] =$teethNames; 
-        $teethLetterArray['ur'] =$teethNames; 
-        for ($i=0; $i <count($teethLetterArray) ; $i++) { 
+        
+        for ($i=0; $i <32 ; $i++) { 
             Teeth::create(
                 [
-                    'name'=>$teethLetterArray[$i] ,
+                  
                     'initial_status'=>"good",
                     'status'=>"good" ,
                     'patient_id'=>$patient->id 
