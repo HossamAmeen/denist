@@ -1,0 +1,936 @@
+{
+	"info": {
+		"_postman_id": "950668f5-3585-4de8-beae-fc0f8725d419",
+		"name": "clinic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "nurse",
+			"item": [
+				{
+					"name": "profile",
+					"item": [
+						{
+							"name": "update profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTI3ODQ1ODYzNGRkNGU5NzFmYzBiOTE4MjZjZWEzNDZjYjE1OWVlMjJkYmJhYmVkMDAxZTZhYjNmNThkNTFjYmUzODI4NDk4MjMzYWVmMGYiLCJpYXQiOjE2MzIzOTk3MzUuNzAyMDI1LCJuYmYiOjE2MzIzOTk3MzUuNzAyMDMxLCJleHAiOjE2NjM5MzU3MzUuNTQ2MTY1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.d-z2ujuY50f0MibsII1UCzpJ6aPOAz9ed_9zN8JhWCtud_hceepZhqOBJuJC5qOmC0cBEeZGsU5XvxWrUBUyuSOlTwwN0oSkMvSH1y4biM1WubyzzhLdPT1u-PhTmHDR4OOjsVGG5SDlUVmB03qFxOR6jF3HMB7Re3tNNak3w-2Tx4WPMMfrD6wIld5p_8letCuIrmYFzaygGZZvyG_zPyrPpN5sSRZetmKcur3Oyi0CzpGr_CTKVjTFRLHoOcC6ldtoC7zvwLGGGlMrbSWeFeckvtEUXn4z1PJK-uSGZL_o9qgFQfJCk56VI6DdH5hb02Yy3pcoHvtMo2eWMPQ17szkHmw_BCJ1ofsUBMmMCzXW4rq3wUKbC7xGC1bJ27AShT3hOAczegkcnpn8DuRJGwYal7IL0r4KwojQNiZyIiL6JgrSMpech2EQoIRJD3oEWeUiyO6tk_qaFRXv1_nMx-R3THX-FxKNr5T44vq7i98XK5zGxZ5z8uiKF1sHrMESilAJfmx0uWYOvapuTA8l3aO4pF0fpSdmvS7W9oeTt2E-1Bgo3O9Q9GGWwltQmp_H9xKQZezm1hykD5YyyA--HWwcrC5DAa_DZbQ85L4OzcboERNVCVB3-S3rX1gtiaN3YM9pK8r2xOafX-Bfn9F7s3RQVJdx_5vGR-JsfJSWD7M",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "hossam",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/nurse/update-profile",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"nurse",
+										"update-profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYTI3ODQ1ODYzNGRkNGU5NzFmYzBiOTE4MjZjZWEzNDZjYjE1OWVlMjJkYmJhYmVkMDAxZTZhYjNmNThkNTFjYmUzODI4NDk4MjMzYWVmMGYiLCJpYXQiOjE2MzIzOTk3MzUuNzAyMDI1LCJuYmYiOjE2MzIzOTk3MzUuNzAyMDMxLCJleHAiOjE2NjM5MzU3MzUuNTQ2MTY1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.d-z2ujuY50f0MibsII1UCzpJ6aPOAz9ed_9zN8JhWCtud_hceepZhqOBJuJC5qOmC0cBEeZGsU5XvxWrUBUyuSOlTwwN0oSkMvSH1y4biM1WubyzzhLdPT1u-PhTmHDR4OOjsVGG5SDlUVmB03qFxOR6jF3HMB7Re3tNNak3w-2Tx4WPMMfrD6wIld5p_8letCuIrmYFzaygGZZvyG_zPyrPpN5sSRZetmKcur3Oyi0CzpGr_CTKVjTFRLHoOcC6ldtoC7zvwLGGGlMrbSWeFeckvtEUXn4z1PJK-uSGZL_o9qgFQfJCk56VI6DdH5hb02Yy3pcoHvtMo2eWMPQ17szkHmw_BCJ1ofsUBMmMCzXW4rq3wUKbC7xGC1bJ27AShT3hOAczegkcnpn8DuRJGwYal7IL0r4KwojQNiZyIiL6JgrSMpech2EQoIRJD3oEWeUiyO6tk_qaFRXv1_nMx-R3THX-FxKNr5T44vq7i98XK5zGxZ5z8uiKF1sHrMESilAJfmx0uWYOvapuTA8l3aO4pF0fpSdmvS7W9oeTt2E-1Bgo3O9Q9GGWwltQmp_H9xKQZezm1hykD5YyyA--HWwcrC5DAa_DZbQ85L4OzcboERNVCVB3-S3rX1gtiaN3YM9pK8r2xOafX-Bfn9F7s3RQVJdx_5vGR-JsfJSWD7M",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/nurse/profile",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"nurse",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "visit",
+					"item": [
+						{
+							"name": "show all visits",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/nurse/visits",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"nurse",
+										"visits"
+									],
+									"query": [
+										{
+											"key": "doctor_id",
+											"value": "2",
+											"disabled": true
+										},
+										{
+											"key": "date",
+											"value": "2021-09-14",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "منتظر",
+											"disabled": true
+										},
+										{
+											"key": "patient_id",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "nurse_id",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "phone",
+											"value": "1609235717365",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show visit detials",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/nurse/visits/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"nurse",
+										"visits",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add visist",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "date",
+											"value": "2021-09-15",
+											"type": "text"
+										},
+										{
+											"key": "time",
+											"value": "03:02:00",
+											"type": "text"
+										},
+										{
+											"key": "patient_id",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "doctor_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/nurse/visits",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"nurse",
+										"visits"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update visit",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "date",
+											"value": "2021-09-15",
+											"type": "text"
+										},
+										{
+											"key": "time",
+											"value": "03:02:00",
+											"type": "text"
+										},
+										{
+											"key": "patient_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "doctor_id",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "piad",
+											"value": "20",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/nurse/visits/3",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"nurse",
+										"visits",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete visit",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/nurse/visits/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"nurse",
+										"visits",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show doctors for add visit",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/nurse/doctors",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"nurse",
+										"doctors"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "patients",
+					"item": [
+						{
+							"name": "show patients ",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/nurse/patients",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"nurse",
+										"patients"
+									],
+									"query": [
+										{
+											"key": "phone",
+											"value": "5436736",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show patient detials",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/nurse/patients/2",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"nurse",
+										"patients",
+										"2"
+									],
+									"query": [
+										{
+											"key": "phone",
+											"value": "098379",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add patient",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "hossam",
+											"type": "text"
+										},
+										{
+											"key": "age",
+											"value": "24",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "01010079798",
+											"type": "text"
+										},
+										{
+											"key": "national_id",
+											"value": "12345678912345",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "assuit",
+											"type": "text"
+										},
+										{
+											"key": "medical_history",
+											"value": "heartdisease,viruse c",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/nurse/patients",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"nurse",
+										"patients"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update patient",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "hosam updated",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/nurse/patients/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"nurse",
+										"patients",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete patient",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/nurse/patients/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"nurse",
+										"patients",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "nurse login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_name",
+									"value": "nurse",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "nurse",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/nurse/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"nurse",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "doctor",
+			"item": [
+				{
+					"name": "patients",
+					"item": [
+						{
+							"name": "show patients who enter",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTZkYjQ2MWQyNWU3MmMwNWZlZTRmYzE5M2Y5YzQxZWQwZmY2YzY5NzgxMzk1OTljZjY0NDY0NjUzYWI5MGJkNTQzZTY3MjQ1OTUyNWM1OTQiLCJpYXQiOjE2MzI1MDI0MzUuNzI5MDE1LCJuYmYiOjE2MzI1MDI0MzUuNzI5MDIyLCJleHAiOjE2NjQwMzg0MzUuNjA1ODgxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.NIk6QznoP80R1iuN791uPEsXsD5kjzfnFT4txg6LnRCGHiVGCHNK7UoPZCW6pnjkQApHf_JxLWi0PlqbvS2acwrttWddOK8v7OQAIxb4YB9ZFrbkkRuv-kJN_THoW78Ia4jGqxkPsI4Js-wSsy2GFzfFotiYTCcDH0lY05qzQlWra1BtFVryCBevXopK9auAlM0gFQxY9_0J-DQLVVS-GSuUIizwiPLqu3PQqVWVVE5ENYw-gdKnq-RVTArtVLsGVIfiwAfEYY1gfBKDZ68UJKlTBrBbAxaYz69pDK9COnwPceR0DqMOtTO7kv4PQEJBo9Bx3c9rhsy-8f9QpzPWibt9DaPVEYoNSdeitxIeet90xS57d42JsB-6w-443Imgt9ab9meS_8-qKrSMd7d4NC9vja1ZyTWeTusGn-OtzgRNT3ph5-lv560g4UgbCq8OswPb-HOt8WxEaDc0dYfgcaFPyOWeljW9R_o6pqPfmWUArnIlRGgypKl0t6ltekCtB4gwKWUTLK9emaU4Hn4BD4oG1y6dMPo1eJ9ALl2tbGzkkZzedjzdHzvUZ_YDBUXZCojdiEkg9fMVG0PDe6SWtXq3PRJjWBcIQV1tZqLm7qHT5vclQLOkcK_6RUmiDQeCMbiOHCDGFy3-UHZofxPDBOSMw9qda1sSHrT0M2dy3v4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/doctor/show-enter-patients",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"doctor",
+										"show-enter-patients"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "patients visits",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTZkYjQ2MWQyNWU3MmMwNWZlZTRmYzE5M2Y5YzQxZWQwZmY2YzY5NzgxMzk1OTljZjY0NDY0NjUzYWI5MGJkNTQzZTY3MjQ1OTUyNWM1OTQiLCJpYXQiOjE2MzI1MDI0MzUuNzI5MDE1LCJuYmYiOjE2MzI1MDI0MzUuNzI5MDIyLCJleHAiOjE2NjQwMzg0MzUuNjA1ODgxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.NIk6QznoP80R1iuN791uPEsXsD5kjzfnFT4txg6LnRCGHiVGCHNK7UoPZCW6pnjkQApHf_JxLWi0PlqbvS2acwrttWddOK8v7OQAIxb4YB9ZFrbkkRuv-kJN_THoW78Ia4jGqxkPsI4Js-wSsy2GFzfFotiYTCcDH0lY05qzQlWra1BtFVryCBevXopK9auAlM0gFQxY9_0J-DQLVVS-GSuUIizwiPLqu3PQqVWVVE5ENYw-gdKnq-RVTArtVLsGVIfiwAfEYY1gfBKDZ68UJKlTBrBbAxaYz69pDK9COnwPceR0DqMOtTO7kv4PQEJBo9Bx3c9rhsy-8f9QpzPWibt9DaPVEYoNSdeitxIeet90xS57d42JsB-6w-443Imgt9ab9meS_8-qKrSMd7d4NC9vja1ZyTWeTusGn-OtzgRNT3ph5-lv560g4UgbCq8OswPb-HOt8WxEaDc0dYfgcaFPyOWeljW9R_o6pqPfmWUArnIlRGgypKl0t6ltekCtB4gwKWUTLK9emaU4Hn4BD4oG1y6dMPo1eJ9ALl2tbGzkkZzedjzdHzvUZ_YDBUXZCojdiEkg9fMVG0PDe6SWtXq3PRJjWBcIQV1tZqLm7qHT5vclQLOkcK_6RUmiDQeCMbiOHCDGFy3-UHZofxPDBOSMw9qda1sSHrT0M2dy3v4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/doctor/show-patients-visits/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"doctor",
+										"show-patients-visits",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show visit detials",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiODA1NWZjODBiN2Y1NmNkYWM2OTM0YjA3NTZkYWM1OGQyYTAzZWQwNWMyZjM5ZmVjOGQ5MTBmZTg1NzYxMTM3YjNhOWY2NTlkMTQ3ZmMwZWIiLCJpYXQiOjE2MzI5MDIzNjIuODc4MzM3LCJuYmYiOjE2MzI5MDIzNjIuODc4MzQzLCJleHAiOjE2NjQ0MzgzNjIuNTc5NTUzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.rXsF3Qjd3oBWUQrYM8g03df5MBChJst_oMAkdmHl31SCgqmBZRdTAZse22n1_rQHt0m_-8Fz7SuBN_6paCUTTj1k3neHo9WZmWg1j7gYL63GBiyqywHLLwdUp8LOx4LwVH1U-hgDUgHO-3nKpKHNbQp77KY9ygvB2XVCWBHmxpwJo1-SWS91MO93Tg1qCe0N3GSsRkRyeyxgz-taj1verdb_WVsQDPcutyCmuzI22G7FN8mRa3HDVhK2DvoebLL1gSNqj5oLSY_rCTDrliJ5a4XKG4f-HcALCyvTrnMNXMFcEMUFQBoA93QpPT85YoO9vS3NBCBzfFZ1G-WzWPeYgWE_8RmhYPLG-LSRcMtIPfU_3HYtgvaVkILAI_CtbWRw7EAICl1fkZwi5yNGLVDuxnuwyAbt8Asz1b65piWFoXjf-pSOnUeSKREmEdJ5JoZ3Wy7GDg-I1VDTSNF92-WleHrGQvAQbPaJyIGgnPpxw1manX87mtcTl74qsJOdkewHXsiIGfWQNSOTHTlozS6h53qcZTRTvTNGGf4KyQgUDJerZ9kewiFhGx_y6n7rC0B8OXkPSQgVbsBIiw6U6vdBJuVcwRuYWa1PewLsMtf2oIEIZmaCRxDTQGOWOXZNFtseF70K8JxZue2DoaQLW54nh4COqccy-Wj8atbFMsaIJq8",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/doctor/show-visit-detials/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"doctor",
+										"show-visit-detials",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "initial exam",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "teeths[]",
+											"value": "a",
+											"type": "text"
+										},
+										{
+											"key": "teeths[]",
+											"value": "b",
+											"type": "text"
+										},
+										{
+											"key": "status[]",
+											"value": "good",
+											"type": "text"
+										},
+										{
+											"key": "status[]",
+											"value": "bad",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/doctor/initial-exam/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"doctor",
+										"initial-exam",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show operations",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/doctor/show-operations",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"doctor",
+										"show-operations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "set operation for teeth",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "teeth_name",
+											"value": "a",
+											"type": "text"
+										},
+										{
+											"key": "teeth_mumber",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "operation",
+											"value": "repair",
+											"type": "text"
+										},
+										{
+											"key": "cost",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "visit_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/doctor/set-operation-teeth/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"doctor",
+										"set-operation-teeth",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "update profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNzJhNzE0YThhNGY0MGZhOTIxNDdhMjU3NmVjYWE3YWI2ZDQ3NTg0ODJiN2U4MjIzZjJhYjQ3NGM5NTIzNTM3N2U0ZGJhZmJmZWJkZWM1YWMiLCJpYXQiOjE2MzI0MDMyMjYuOTE2MTczLCJuYmYiOjE2MzI0MDMyMjYuOTE2MTc3LCJleHAiOjE2NjM5MzkyMjYuODUwNjcsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.O5-KYrSY8LmXZ5bz1ZjuitoL24P4zLKnPOHoWoqQRXTPduvruHckTPKxW0jfPHy6enCusuC5E5rPGbdoLMQVunXInUx9gFcJ3n19UlMXYVV-FZFKWkXs1du7ElZq4HsEEAIacrzXyg1sWMfBFfC2GIKYSTLLUu30_gM5qaZMNfcxK4_ohjIyUcxxeLkMF7hXbw_ejDlF6wfNAC3JPfshpwRF893I5efPsY1oQTZ_35IsUlk-cmFo8Cfak4EdiBbKeyVqk4j8QUe07bBsWM0spMslM7RH-3aiJWqMdUJ1CcunfK3EXwhhyZeUqngyFls9JorC9l_zCj_58LfPhB81CHKUK21dB58dLnJAUKHom8buiHMFLjkWha_yhL7gdvMnBJ9IQORmSoP3cz02yYL9V-h4Mu4lBx675IKWaDqciu-3r6v5G3EBddrg7jg6jVzljzNycz7LUdqalJoWLdwIBxHrq2Yi7N1Un2ALf1hh83S47dupeN-lzgrdbrDU0jygNPOpzSs_7K2dLmaV3KxfLBXP3VP8AxvWwcQ8gC_g4A5DCHq-6jktuQqnXr7zYzvTkrgdve4XJ6a3LIYTiGV1JTWGeN8vb3rcp8Q8owNlWETwnbEPna3GxmBRiC4sgozNwMqrWE4uk8vP3AAlFzrpIjoNv9hgDM7quVZtgcIej6A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user_name",
+									"value": "hossam",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "hossam ameen",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "spiecalization",
+									"value": "eyes",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/doctor/update-profile",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"doctor",
+								"update-profile"
+							]
+						},
+						"description": "                    "
+					},
+					"response": []
+				},
+				{
+					"name": "doctor login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_name",
+									"value": "doctor",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "doctor",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/doctor/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"doctor",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "nurseToken",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiMjc4NjQ4ODJiZDk3ZmNmMjE2ZjUwNDVmMTJkNTk3Y2YzYjgxODg4NWQ4ZjViZmZiYjRlNTc4MDgwMTc1ZWM0ZjA5ZWI5Njk0ZmFlMmVmMjIiLCJpYXQiOjE2MzE3MTE4NDUuMzU3NDcsIm5iZiI6MTYzMTcxMTg0NS4zNTc0NzQsImV4cCI6MTY2MzI0Nzg0NS4zMDcwNjIsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.ex7T9Uqm4ZfF2VGGCzOkDqMsvqHwQTj7PgHK8_B3VrAhsTS5ZrVlpFOpt-R3WW5OP6yZQSOHZneW6UD0ELe5hFGW6qVwSNg6pubIG3I3um-klziDYNsimuw9yaAMbfRbIw0eWdV5COzbAh7lxVaCk4UcVJ69Xiri8uJpx8IyK6Le5RDoBuw_-8_4ueVSt_qwfYXBNiFfd7Js97HQkWpTCKjcQFpHrcNlMj9O2BPjZ5f7fTvBOktb6NhnwNOvf0t0GKtsfVO331kJWSLFgzf5CCUfHsDK1u6hnxIM1Z9HxW-7kOjQ04Kbz_aVxXZhIU7DOtI86lM9398LSubk3De7i8hX_vLg_cktbDTRr37eMpGhH7i9p4j7sx6z_f_xRzQ3TkFDVeEM3VBsydIzEKa3kDDQ_Z-BRGDJ8yOFy78sgkoP6QX8EuDpj1-SQLKCFFus7GK7JyQN8l-WsLvGohxA_obQMII-5qsSOmN6HlzC2_ktJhf6XPs9Cly31YbJCWPa11z-AUOd0pOxGRtE5pwMUM8xsCms5V9GJ54koeVbRkZuU1CkUW1iTtL18eyTkX5euCvl0y20sJECGqZ7PLoPHZu2Blxnsf6_L4ooRaY82TsgsPGYyVzZ0TMBktDNZBHbYSuPHjSnAVKRDcQ79nGMUOYnP3sjhzuv272RPFB1jn0"
+		}
+	]
+}

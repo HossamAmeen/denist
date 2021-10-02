@@ -28,7 +28,15 @@ class NursePatientController extends Controller
     
     public function show($id)
     {
-        $patient = Patient::where('id' , $id )->orWhere('phone' , 'LIKE', '%' . request('phone') . '%' )->first();
+
+        if(request('phone') != null){
+            
+            $patient = Patient::where('phone' , 'LIKE', '%' . request('phone') . '%' )->first();
+        }
+        else{
+            $patient = Patient::find($id );
+        }
+       
         if(isset($patient)){
             return $this->APIResponse($patient, null, 200);
         }

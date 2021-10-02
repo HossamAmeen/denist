@@ -53,14 +53,17 @@ class NurseVisitController extends Controller
 
     public function update($id , Request $request)
     {
+        
         $visit = Visit::find($id);
-        if(isset($visit)){
-            $visit->update($request->all());
-        }
-        else
-        {
+       
+        if(! isset($visit)){
+            
             return $this->APIResponse(null, "this visit not found", 500);
+            
         }
+        // return $visit;
+        $visit->update($request->all());
+        // return $visit;
         return $this->APIResponse(null, null, 200);
     }
 

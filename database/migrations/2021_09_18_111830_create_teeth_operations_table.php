@@ -16,8 +16,8 @@ class CreateTeethOperationsTable extends Migration
         Schema::create('teeth_operations', function (Blueprint $table) {
             $table->id();
             $table->string('operation')->nullable();
-            $table->string('cost')->nullable();
-
+            $table->double('cost')->nullable();
+            
             $table->string('name')->nullable();
             $table->string('number')->nullable();
             

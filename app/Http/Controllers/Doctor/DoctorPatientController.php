@@ -15,8 +15,9 @@ class DoctorPatientController extends Controller
         {
          return $this->APIResponse(null, "you have to login", 400);
         }
-        $data['currentVisit'] = Visit::with('patient')->where('status' , 'مع الطبيب')->where('doctor_id' , Auth::guard('doctor-api')->user()->id)->get('patient_id')->first();
+        $data['currentVisit'] = Visit::with('patient.teeths')->where('status' , 'مع الطبيب')->where('doctor_id' , Auth::guard('doctor-api')->user()->id)->get('patient_id')->first();
         $data['lastVisit'] =$visit = Visit::where('status','انتهت الزياره')->where('doctor_id' , Auth::guard('doctor-api')->user()->id)->orderBy('id','DESC')->first();
+       
         return $this->APIResponse($data, null, 200);
     }
     public function showPatientVisits($patientId)
@@ -35,7 +36,8 @@ class DoctorPatientController extends Controller
          return $this->APIResponse(null, "you have to login", 400);
         }
 
-        $visit = Visit::with('patient')->find($visitId);
+        $visit = Visit::with(['patient',"operations"])->find($visitId);
+        $visit['totoal_cost'] = $visit->operations->sum('cost');
         if(isset($visit)){
             return $this->APIResponse($visit, null, 200);
         }

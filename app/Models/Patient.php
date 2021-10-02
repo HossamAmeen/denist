@@ -11,6 +11,9 @@ class Patient extends Model
      protected $hidden = [
          'user_id',"created_at" , 'updated_at','deleted_at' 
     ];
+    public function teeths(){
+        return $this->hasMany(teeth::class , 'patient_id');
+    }
     public function user(){
         return $this->belongsTo(User::class);
     }
