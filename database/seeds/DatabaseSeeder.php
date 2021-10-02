@@ -91,7 +91,28 @@ class DatabaseSeeder extends Seeder
             "cost"=>300,
             "operation_id"=>4
         ]);
+        \App\Models\Patient::create([
+            "name"=> "Hossam",
+            'phone'=>"01010079798",
+            'address'=>"assuit",
+            'age'=>5,
+            'Nurse_id'=>1,           
+        ]);
+        $teethLetterArray = range('a','t');
+        for ($i=0; $i <count($teethLetterArray) ; $i++) { 
+            \App\Models\Teeth::create(
+                [
+                    'name'=>$teethLetterArray[$i] ,
+                    'initial_status'=>"good",
+                    'patient_id'=>1 
+                ]
+                );
+        }
         factory('App\Models\Patient',10)->create();
+
+       
+       
+
         factory('App\Models\Visit',50)->create();
         }
 }

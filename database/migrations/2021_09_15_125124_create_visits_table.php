@@ -17,7 +17,7 @@ class CreateVisitsTable extends Migration
             $table->id();
             $table->date('date')->nullable();
             $table->time('time')->nullable();
-            $table->double('piad')->nullable();
+            $table->double('piad')->default(0);
             $table->string('status')->default('منتظر');
             
             $table->bigInteger('doctor_id')->unsigned()->nullable();

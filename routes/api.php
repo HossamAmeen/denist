@@ -44,13 +44,17 @@ Route::middleware('cors')->group(function () {
                 
         });
         Route::prefix('doctor')->namespace('Doctor')->group(function(){
+
                 Route::post('login', 'DoctorController@login');
                 Route::put('update-profile', 'DoctorController@updateProfile');
+
                 Route::get('show-enter-patients', 'DoctorPatientController@showEnterPatient');
                 Route::get('show-patients-visits/{patientId}', 'DoctorPatientController@showPatientVisits');
                 Route::get('show-visit-detials/{visitId}', 'DoctorPatientController@showVisitDetials');
+                
+                Route::put('initial-exam/{teethId}', 'DoctorPatientController@initialExam');
+
                 Route::get('show-operations', 'DoctorPatientController@showOperations');
-                Route::post('initial-exam/{patientId}', 'DoctorPatientController@initialExam');
                 Route::post('set-operation-teeth/{patientId}', 'DoctorPatientController@setOperationTeeth');
         });
 });

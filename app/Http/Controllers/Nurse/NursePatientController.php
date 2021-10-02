@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Nurse;
 use App\Http\Controllers\APIResponseTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{Doctor,Nurse,Visit,Patient};
+use App\Models\{Doctor,Nurse,Visit,Patient,Teeth};
 use Auth , File;
 class NursePatientController extends Controller
 {
@@ -31,12 +31,15 @@ class NursePatientController extends Controller
 
         if(request('phone') != null){
             
-            $patient = Patient::where('phone' , 'LIKE', '%' . request('phone') . '%' )->first();
+            $patient = Patient::with(['visits','teeths'])->where('phone' , 'LIKE', '%' . request('phone') . '%' )->first();
         }
         else{
-            $patient = Patient::find($id );
+            $patient = Patient::with(['visits','teeths'])->find($id);
         }
-       
+        $patient['lastVisit'] = Visit::where('status','انتهت الزياره')
+                                // ->where('doctor_id' , Auth::guard('doctor-api')->user()->id)
+                                ->where('patient_id' , $patient->id)
+                                ->orderBy('id','DESC')->first();
         if(isset($patient)){
             return $this->APIResponse($patient, null, 200);
         }
@@ -50,6 +53,28 @@ class NursePatientController extends Controller
         $requestArray['nurse_id'] = Auth::guard('nurse-api')->user()->id ?? 1  ;
       
         $patient =Patient::create($requestArray);
+        if($patient->age < 6)
+        $teethLetterArray = range('a','t');
+        elseif($patient->age > 12)
+        {
+            $teethLetterArray =array_merge(range(11,18) , range(21,28) , range(31,38) , range(41,48)); 
+            // $teethLetterArray[] =range(21,28); 
+            // $teethLetterArray[] =range(31,38); 
+            // $teethLetterArray[] =range(41,48); 
+            // range('','','','','','','','','','','','','','','','','','','','','','','','','',
+            // '','','','','','','','','','','','','','','','','','','','','','','','','','','',);
+        }
+       
+        for ($i=0; $i <count($teethLetterArray) ; $i++) { 
+            Teeth::create(
+                [
+                    'name'=>$teethLetterArray[$i] ,
+                    'initial_status'=>"good",
+                    'status'=>"good" ,
+                    'patient_id'=>$patient->id 
+                ]
+                );
+        }
         $data['patient_id'] = $patient->id ;
         return $this->APIResponse($data, null, 200);
     }

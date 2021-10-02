@@ -17,7 +17,7 @@ class DoctorPatientController extends Controller
         }
         $data['currentVisit'] = Visit::with('patient.teeths')->where('status' , 'مع الطبيب')->where('doctor_id' , Auth::guard('doctor-api')->user()->id)->get('patient_id')->first();
         $data['lastVisit'] =$visit = Visit::where('status','انتهت الزياره')->where('doctor_id' , Auth::guard('doctor-api')->user()->id)->orderBy('id','DESC')->first();
-       
+      
         return $this->APIResponse($data, null, 200);
     }
     public function showPatientVisits($patientId)
@@ -26,7 +26,10 @@ class DoctorPatientController extends Controller
         {
          return $this->APIResponse(null, "you have to login", 400);
         }
-        $visit = Visit::with('patient')->where('doctor_id' , Auth::guard('doctor-api')->user()->id)->orderBy('id','DESC')->first();
+        $visit = Visit::with('patient')
+                    ->where('doctor_id' , Auth::guard('doctor-api')->user()->id)
+                    ->where('patient_id' , $patientId)
+                    ->orderBy('id','DESC')->get();
         return $this->APIResponse($visit, null, 200);
     }
     public function showVisitDetials($visitId)
@@ -47,19 +50,15 @@ class DoctorPatientController extends Controller
         }
     }
 
-    public function initialExam(Request $request , $patientId)
+    public function initialExam(Request $request , $teethId)
     {
-        // return $request;
-        for ($i=0; $i < count($request['teeths']) ; $i++) { 
-            Teeth::create([
-               
-                'name' => $request['teeths'][$i],
-                'initial_status'=>$request['status'][$i],
-                'patient_id' => $patientId,
-            ]);
-        }
-            
-        return $this->APIResponse(null, null, 200);
+
+            $teeth = Teeth::find($teethId);
+            $teeth = $teeth->update([
+                'initial_status'=>$request['teeth_status'],
+
+            ]);            
+            return $this->APIResponse(null, null, 200);
         
     }
     public function showOperations()
