@@ -12,7 +12,7 @@ class Patient extends Model
          'user_id',"created_at" , 'updated_at','deleted_at' 
     ];
     public function teeths(){
-        return $this->hasMany(teeth::class , 'patient_id');
+        return $this->hasMany(Teeth::class , 'patient_id');
     }
     public function visits(){
         return $this->hasMany(Visit::class , 'patient_id')->limit(10);
