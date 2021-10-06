@@ -18,6 +18,7 @@ class CreateOperationsTable extends Migration
             $table->string('name');
             $table->double('cost')->nullable();
             $table->string('color')->nullable();
+            
             $table->bigInteger('doctor_id')->unsigned()->nullable();
             $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('set null');
 

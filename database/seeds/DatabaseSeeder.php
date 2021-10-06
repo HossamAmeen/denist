@@ -98,7 +98,23 @@ class DatabaseSeeder extends Seeder
             'age'=>5,
             'Nurse_id'=>1,           
         ]);
-      
+         // $statues = ['منتظر', 'مع الطبيب' , 'جاهز للدفع' , 'انتهت الزياره' ];
+        \App\Models\Visit::create([          
+                'date'=>date('Y-m-d'),
+                'time'=>date("h:i"),
+                'status'=>'انتهت الزياره',
+                'patient_id'=>1,
+                'doctor_id'=>1,
+                'Nurse_id'=>1,                   
+        ]);
+        \App\Models\Visit::create([          
+            'date'=>date('Y-m-d'),
+            'time'=>date("h:i"),
+            'status'=>'مع الطبيب',
+            'patient_id'=>1,
+            'doctor_id'=>1,
+            'Nurse_id'=>1,                   
+    ]);
         for ($i=0; $i <32 ; $i++) { 
             \App\Models\Teeth::create(
                 [
@@ -108,6 +124,15 @@ class DatabaseSeeder extends Seeder
                 ]
                 );
         }
+
+        \App\Models\TeethOperation::create([
+            'operation'=>'repair',
+            'cost' => 50 ,
+            'patient_id'=>1,
+            'visit_id'=>1 ,
+            'teeth_id'=>1
+        ]);
+
         factory('App\Models\Patient',10)->create();
 
        

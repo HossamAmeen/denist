@@ -5,7 +5,7 @@ use App\Http\Controllers\APIResponseTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\{Doctor,Nurse,Visit,Patient,Teeth,Operation,TeethOperation};
-use Auth , File;
+use Auth , File ,DB;
 class DoctorPatientController extends Controller
 {
     use APIResponseTrait;
@@ -23,37 +23,17 @@ class DoctorPatientController extends Controller
       
         return $this->APIResponse($data, null, 200);
     }
-    public function showPatientVisits($patientId)
+    
+    public function nurses()
     {
+
         if(!isset(Auth::guard('doctor-api')->user()->id))
         {
          return $this->APIResponse(null, "you have to login", 400);
         }
-        $visit = Visit::with('patient')
-                    ->where('doctor_id' , Auth::guard('doctor-api')->user()->id)
-                    ->where('patient_id' , $patientId)
-                    ->orderBy('id','DESC')->get();
-        return $this->APIResponse($visit, null, 200);
+        $nurses = Nurse::where('doctor_id' ,Auth::guard('doctor-api')->user()->id )->get();
+        return $this->APIResponse($nurses, null, 200);
     }
-
-    public function showVisitDetials($visitId)
-    {
-        if(!isset(Auth::guard('doctor-api')->user()->id))
-        {
-         return $this->APIResponse(null, "you have to login", 400);
-        }
-
-        $visit = Visit::with(['patient',"operations"])->find($visitId);
-        $visit['totoal_cost'] = $visit->operations->sum('cost');
-        if(isset($visit)){
-            return $this->APIResponse($visit, null, 200);
-        }
-        else
-        {
-            return $this->APIResponse(null, "this visit not found", 500);
-        }
-    }
-
     public function showVisits()
     {
         $visits = Visit::query();
@@ -93,10 +73,10 @@ class DoctorPatientController extends Controller
 
         if(request('phone') != null){
             
-            $patient = Patient::with(['visits','teeths'])->where('phone' , 'LIKE', '%' . request('phone') . '%' )->first();
+            $patient = Patient::with(['visits.operations','teeths'])->where('phone' , 'LIKE', '%' . request('phone') . '%' )->first();
         }
         else{
-            $patient = Patient::with(['visits','teeths'])->find($patientId);
+            $patient = Patient::with(['visits.operations','teeths'])->find($patientId);
         }
         $patient['lastVisit'] = Visit::where('status','انتهت الزياره')
                                 ->where('doctor_id' , Auth::guard('doctor-api')->user()->id)
@@ -120,12 +100,53 @@ class DoctorPatientController extends Controller
             return $this->APIResponse(null, null, 200);
         
     }
+    
+    public function showPatientVisits($patientId)
+    {
+        if(!isset(Auth::guard('doctor-api')->user()->id))
+        {
+         return $this->APIResponse(null, "you have to login", 400);
+        }
+        /**
+         * ->get(['projects.id', DB::raw('sum(variations.value) as value')])
+   ->sum('value');
+         */
+        $visit = Visit::with(['operations'=>function($query )use ($patientId){
+                         $query->where('patient_id',$patientId) ;
+                        }])
+                        ->withCount(['operations as totalCost'=>function($query){
+                            $query->where('patient_id',1)->select(DB::raw('sum(cost)'));   
+                        }])  
+                    ->where('doctor_id' , Auth::guard('doctor-api')->user()->id)
+                    ->where('patient_id' , $patientId)
+                    ->orderBy('id','DESC')->get();
+        return $this->APIResponse($visit, null, 200);
+    }
+
+    public function showVisitDetials($visitId)
+    {
+        if(!isset(Auth::guard('doctor-api')->user()->id))
+        {
+         return $this->APIResponse(null, "you have to login", 400);
+        }
+
+        $visit = Visit::with(['patient',"operations"])->find($visitId);
+        $visit['totoal_cost'] = $visit->operations->sum('cost');
+        if(isset($visit)){
+            return $this->APIResponse($visit, null, 200);
+        }
+        else
+        {
+            return $this->APIResponse(null, "this visit not found", 500);
+        }
+    }
+
     public function showOperations()
     {
-        // if(!isset(Auth::guard('doctor-api')->user()->id))
-        // {
-        //  return $this->APIResponse(null, "you have to login", 400);
-        // }
+        if(!isset(Auth::guard('doctor-api')->user()->id))
+        {
+         return $this->APIResponse(null, "you have to login", 400);
+        }
         $operations = Operation::with('operations')
         // ->where('doctor_id' , Auth::guard('doctor-api')->user()->id)
         ->where('operation_id' , null)
@@ -137,11 +158,17 @@ class DoctorPatientController extends Controller
         $operations = TeethOperation::where('teeth_id' , $teethId)->get();
         return $this->APIResponse($operations, null, 200);
     }
+
     public function storeOperationTeeth(Request $request ,$teethId)
     {
+        if(!isset(Auth::guard('doctor-api')->user()->id))
+        {
+         return $this->APIResponse(null, "you have to login", 400);
+        }
         $operation = TeethOperation::create([
             'operation'=>$request->operation ,
             'cost' =>$request->cost ,
+            'doctor_id'=>Auth::guard('doctor-api')->user()->id,
             'patient_id'=>$request->patient_id,
             'visit_id'=> $request->visit_id,
             'teeth_id'=>$teethId
@@ -153,7 +180,8 @@ class DoctorPatientController extends Controller
     {
         $operation = TeethOperation::find($operationId);
         if(isset($operation)){
-            $operation->update(['cost'=>($request->cost - ($request->discount != null ? $request->discount : 0  
+            $operation->update([
+                'cost'=>($request->cost - ($request->discount != null ? $request->discount : 0  
             ) ) ]);  
         }
         return $this->APIResponse(null, null, 200);
