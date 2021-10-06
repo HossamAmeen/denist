@@ -15,7 +15,9 @@ class DoctorPatientController extends Controller
         {
          return $this->APIResponse(null, "you have to login", 400);
         }
-        $data['currentVisit'] = Visit::with('patient.teeths')->where('status' , 'مع الطبيب')->where('doctor_id' , Auth::guard('doctor-api')->user()->id)->get('patient_id')->first();
+        $data['currentVisit'] = Visit::with('patient.teeths')->where('status' , 'مع الطبيب')
+                                    ->where('doctor_id' , Auth::guard('doctor-api')->user()->id)
+                                    ->get('patient_id')->first();
         $data['lastVisit'] =$visit = Visit::where('status','انتهت الزياره')->where('doctor_id' , Auth::guard('doctor-api')->user()->id)->orderBy('id','DESC')->first();
       
         return $this->APIResponse($data, null, 200);
@@ -56,6 +58,7 @@ class DoctorPatientController extends Controller
             $teeth = Teeth::find($teethId);
             $teeth = $teeth->update([
                 'initial_status'=>$request['teeth_status'],
+                'status'=>$request['teeth_status'],
 
             ]);            
             return $this->APIResponse(null, null, 200);
@@ -71,6 +74,11 @@ class DoctorPatientController extends Controller
         // ->where('doctor_id' , Auth::guard('doctor-api')->user()->id)
         ->where('operation_id' , null)
         ->get();
+        return $this->APIResponse($operations, null, 200);
+    }
+    public function showOperationsOfTeeth($teethId)
+    {
+        $operations = TeethOperation::where('teeth_id' , $teethId)->get();
         return $this->APIResponse($operations, null, 200);
     }
     public function storeOperationTeeth(Request $request ,$teethId)

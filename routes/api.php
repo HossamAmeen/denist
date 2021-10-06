@@ -55,6 +55,7 @@ Route::middleware('cors')->group(function () {
                 Route::put('initial-exam/{teethId}', 'DoctorPatientController@initialExam');
 
                 Route::get('show-operations', 'DoctorPatientController@showOperations');
+                Route::get('show-operations/{teethId}', 'DoctorPatientController@showOperationsOfTeeth');
                 Route::post('set-operation-teeth/{teethId}', 'DoctorPatientController@storeOperationTeeth');
                 Route::put('update-operation-teeth/{operationId}', 'DoctorPatientController@updateOperationTeeth');
         });
