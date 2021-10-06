@@ -9,12 +9,13 @@ use Auth , File;
 class DoctorPatientController extends Controller
 {
     use APIResponseTrait;
-    public function showEnterPatient()
+    public function showEnterPatient()   /// not work 
     {
         if(!isset(Auth::guard('doctor-api')->user()->id))
         {
          return $this->APIResponse(null, "you have to login", 400);
         }
+
         $data['currentVisit'] = Visit::with('patient.teeths')->where('status' , 'مع الطبيب')
                                     ->where('doctor_id' , Auth::guard('doctor-api')->user()->id)
                                     ->get('patient_id')->first();
@@ -34,6 +35,7 @@ class DoctorPatientController extends Controller
                     ->orderBy('id','DESC')->get();
         return $this->APIResponse($visit, null, 200);
     }
+
     public function showVisitDetials($visitId)
     {
         if(!isset(Auth::guard('doctor-api')->user()->id))
@@ -52,6 +54,60 @@ class DoctorPatientController extends Controller
         }
     }
 
+    public function showVisits()
+    {
+        $visits = Visit::query();
+        if(request('doctor_id') != null){
+
+            $visits = $visits->where('doctor_id' , request('doctor_id') );
+        }
+        if(request('date') != null){
+          
+            $visits = $visits->whereDate('date' , request('date') );
+        }
+        if(request('status') != null){
+            $visits = $visits->where('status' , request('status') );
+        }
+        if(request('patient_id') != null){
+          
+            $visits = $visits->where('patient_id' , request('patient_id') );
+        }
+        if(request('phone') != null){
+            
+            $patients = Patient::where('phone' , 'LIKE', '%' . request('phone') . '%' )->pluck('id');
+            $visits = $visits->whereIn('patient_id' , $patients );
+        }
+        if(request('nurse_id') != null){
+            $visits = $visits->where('nurse_id' , request('nurse_id') );
+        }
+        $visits = $visits->with(['patient','nurse','doctor'])->orderBy('id' , 'DESC')->get();
+        return $this->APIResponse($visits, null, 200);
+    }
+
+    public function showPatient($patientId)
+    {
+        if(!isset(Auth::guard('doctor-api')->user()->id))
+        {
+         return $this->APIResponse(null, "you have to login", 400);
+        }
+
+        if(request('phone') != null){
+            
+            $patient = Patient::with(['visits','teeths'])->where('phone' , 'LIKE', '%' . request('phone') . '%' )->first();
+        }
+        else{
+            $patient = Patient::with(['visits','teeths'])->find($patientId);
+        }
+        $patient['lastVisit'] = Visit::where('status','انتهت الزياره')
+                                ->where('doctor_id' , Auth::guard('doctor-api')->user()->id)
+                                ->where('patient_id' , $patient->id)
+                                ->orderBy('id','DESC')->first();
+        if(isset($patient)){
+            return $this->APIResponse($patient, null, 200);
+        }
+        return $this->APIResponse(null, "not found", 200);
+    }
+    
     public function initialExam(Request $request , $teethId)
     {
 

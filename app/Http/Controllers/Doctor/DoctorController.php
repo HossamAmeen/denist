@@ -60,9 +60,9 @@ class DoctorController extends Controller
         {
          return $this->APIResponse(null, "you have to login", 400);
         }
-        $nurse = Doctor::find(Auth::guard('doctor-api')->user()->id);
+        $doctor = Doctor::find(Auth::guard('doctor-api')->user()->id);
         
-        return $this->APIResponse($nurse, null, 200);
+        return $this->APIResponse($doctor, null, 200);
     }
 
     public function updateProfile(Request $request)
@@ -72,7 +72,7 @@ class DoctorController extends Controller
        {
         return $this->APIResponse(null, "you have to login", 400);
        }
-        $vendor = Doctor::find(Auth::guard('doctor-api')->user()->id);
+        $doctor = Doctor::find(Auth::guard('doctor-api')->user()->id);
       
        
         $requestArray = $request->all();
@@ -81,8 +81,8 @@ class DoctorController extends Controller
         if(isset($request->password))
          $requestArray['password'] = bcrypt($request->password);
 
-        $vendor->update($requestArray);
-        return $this->APIResponse($vendor, null, 200);
+        $doctor->update($requestArray);
+        return $this->APIResponse($doctor, null, 200);
     }
     
 

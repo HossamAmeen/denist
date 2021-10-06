@@ -46,7 +46,11 @@ Route::middleware('cors')->group(function () {
         Route::prefix('doctor')->namespace('Doctor')->group(function(){
 
                 Route::post('login', 'DoctorController@login');
+                Route::get('show-profile', 'DoctorController@showProfile');
                 Route::put('update-profile', 'DoctorController@updateProfile');
+
+                Route::get('visits', 'DoctorPatientController@showVisits');
+                Route::get('show-patient/{patientId}', 'DoctorPatientController@showPatient');
 
                 Route::get('show-enter-patients', 'DoctorPatientController@showEnterPatient');
                 Route::get('show-patients-visits/{patientId}', 'DoctorPatientController@showPatientVisits');
@@ -55,7 +59,7 @@ Route::middleware('cors')->group(function () {
                 Route::put('initial-exam/{teethId}', 'DoctorPatientController@initialExam');
 
                 Route::get('show-operations', 'DoctorPatientController@showOperations');
-                Route::get('show-operations/{teethId}', 'DoctorPatientController@showOperationsOfTeeth');
+                Route::get('show-operations-history/{teethId}', 'DoctorPatientController@showOperationsOfTeeth');
                 Route::post('set-operation-teeth/{teethId}', 'DoctorPatientController@storeOperationTeeth');
                 Route::put('update-operation-teeth/{operationId}', 'DoctorPatientController@updateOperationTeeth');
         });
