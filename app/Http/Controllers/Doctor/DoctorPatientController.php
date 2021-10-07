@@ -173,6 +173,10 @@ class DoctorPatientController extends Controller
             'visit_id'=> $request->visit_id,
             'teeth_id'=>$teethId
         ]);
+        $teeth = Teeth::where('id' , $teethId)->first();
+        $teeth = $teeth->update([
+            'status'=>$request->operation,
+        ]);    
         $data['operation_id'] = $operation->id;
         return $this->APIResponse($data, null, 200);
     }
@@ -183,6 +187,21 @@ class DoctorPatientController extends Controller
             $operation->update([
                 'cost'=>($request->cost - ($request->discount != null ? $request->discount : 0  
             ) ) ]);  
+        }
+        return $this->APIResponse(null, null, 200);
+    }
+    public function deleteOperationTeeth($operationTeethId)
+    {
+        $operation = TeethOperation::find($operationTeethId);
+        if(isset($operation)){
+            $lastoperation = TeethOperation::where('teeth_id',$operation->teeth_id)
+                                            ->orderBy('id','DESC')
+                                            ->first();
+            $teeth = Teeth::where('id' , $operation->teeth_id)->first();
+             $teeth = $teeth->update([
+            'status'=>$lastoperation->operation,
+             ]);
+            $operation->delete();  
         }
         return $this->APIResponse(null, null, 200);
     }

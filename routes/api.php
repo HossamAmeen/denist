@@ -62,6 +62,7 @@ Route::middleware('cors')->group(function () {
                 Route::get('show-operations-history/{teethId}', 'DoctorPatientController@showOperationsOfTeeth');
                 Route::post('set-operation-teeth/{teethId}', 'DoctorPatientController@storeOperationTeeth');
                 Route::put('update-operation-teeth/{operationId}', 'DoctorPatientController@updateOperationTeeth');
+                Route::delete('operation-teeth/{operationId}', 'DoctorPatientController@deleteOperationTeeth');
         });
 });
 

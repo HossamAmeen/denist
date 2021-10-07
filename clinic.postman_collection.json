@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "950668f5-3585-4de8-beae-fc0f8725d419",
+		"_postman_id": "32620315-5374-4950-8015-66eefc644e17",
 		"name": "clinic",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -136,11 +136,6 @@
 											"disabled": true
 										},
 										{
-											"key": "nurse_id",
-											"value": "1",
-											"disabled": true
-										},
-										{
 											"key": "phone",
 											"value": "1609235717365",
 											"disabled": true
@@ -195,7 +190,7 @@
 										},
 										{
 											"key": "patient_id",
-											"value": "2",
+											"value": "11",
 											"type": "text"
 										},
 										{
@@ -236,37 +231,17 @@
 								"method": "PUT",
 								"header": [],
 								"body": {
-									"mode": "formdata",
-									"formdata": [
+									"mode": "urlencoded",
+									"urlencoded": [
 										{
-											"key": "date",
-											"value": "2021-09-15",
-											"type": "text"
-										},
-										{
-											"key": "time",
-											"value": "03:02:00",
-											"type": "text"
-										},
-										{
-											"key": "patient_id",
-											"value": "1",
-											"type": "text"
-										},
-										{
-											"key": "doctor_id",
-											"value": "2",
-											"type": "text"
-										},
-										{
-											"key": "piad",
-											"value": "20",
+											"key": "status",
+											"value": "انتهت الزياره",
 											"type": "text"
 										}
 									]
 								},
 								"url": {
-									"raw": "http://127.0.0.1:8000/api/nurse/visits/3",
+									"raw": "http://127.0.0.1:8000/api/nurse/visits/51",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -279,7 +254,7 @@
 										"api",
 										"nurse",
 										"visits",
-										"3"
+										"51"
 									]
 								}
 							},
@@ -376,7 +351,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://127.0.0.1:8000/api/nurse/patients/2",
+									"raw": "http://127.0.0.1:8000/api/nurse/patients/1",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -389,7 +364,7 @@
 										"api",
 										"nurse",
 										"patients",
-										"2"
+										"1"
 									],
 									"query": [
 										{
@@ -571,134 +546,254 @@
 					"name": "patients",
 					"item": [
 						{
-							"name": "show patients who enter",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
+							"name": "operations",
+							"item": [
+								{
+									"name": "show operations",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://127.0.0.1:8000/api/doctor/show-operations",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"doctor",
+												"show-operations"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "set operation for teeth with (teeth id)",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYmNhMTRmZThiZWVmOWQ3ZTY5YWIxYWE3ZTZkNWJkZGEwYjY3ZWY3ZGRkMDJhMjBjMmUxZmYzMWQ0NzExYTJhZGI2OGVlODEzOWRkYzMzMmMiLCJpYXQiOjE2MzM1NTc4MTAuNjEyMzc0LCJuYmYiOjE2MzM1NTc4MTAuNjEyMzksImV4cCI6MTY2NTA5MzgxMC42MDAwNzYsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.AueXc1KXt8lg_imTqQRakKTKTdjIvieSPD9yeJYyhdwfMOggKzEpI6ZcQVh4RiqjpphHWNAON3mEiQ8hA4Qm3ySICt1penf8LB9kNFw4BVyZThV-POsR5jpz05pZvX8rdP6n1YAXl1br_QLckLpHIEam2AbzWnVyS67Bp6ZNDe_grq_3RtboLso65bIptJqbW17K3zEt85IprX2c3CLgALVxwgAvRtTZxg7yis5wmvinNMVvAwv_iaCtyZIrPu4AeG23t_wGhMuc7QcyigxB-4SDHyRn_8z5T7pcdnegtQccHd5g7qdvfWeEXn_Nh11dkP3uaw2IUkRStt8ySscsT1vHB2SoZ9CnUQ6OaEWf2KBh0mGm09KjyUrirVwR0R7PCdC7v-g0hvYeHFBKXPKVhDDn7BIi4N42r2iHXs6uGg5zPedsQRTWe2vKbxonymYhgZac3cTF6IppiTf0Ikm52iAMelJorxzsX8sw2Pp9_uJBvmR2SMPFinmD0Nb-beirznr9DvlbJQdAfTEtDNBmR0FFJx2JURodTBivXZ6CVOGA0MKeY6m7m9U23UuHIaUvzPM-l4hfoTlHAwXdwHixxYzxsIde6sPxNOGA2Nywuavn3wuXkaeCX2GAAk1iD_ZIyNAj_YLL97waP1q8xXc75cjTUp4QG-SOXv5Um5arZ00",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "operation",
+													"value": "repair",
+													"type": "text"
+												},
+												{
+													"key": "cost",
+													"value": "10",
+													"type": "text"
+												},
+												{
+													"key": "visit_id",
+													"value": "1",
+													"type": "text"
+												},
+												{
+													"key": "patient_id",
+													"value": "",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/api/doctor/set-operation-teeth/1",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"doctor",
+												"set-operation-teeth",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "show history operations of teeth with teeth id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://127.0.0.1:8000/api/doctor/show-operations-history/1",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"doctor",
+												"show-operations-history",
+												"1"
+											]
+										}
+									},
+									"response": [
 										{
-											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTZkYjQ2MWQyNWU3MmMwNWZlZTRmYzE5M2Y5YzQxZWQwZmY2YzY5NzgxMzk1OTljZjY0NDY0NjUzYWI5MGJkNTQzZTY3MjQ1OTUyNWM1OTQiLCJpYXQiOjE2MzI1MDI0MzUuNzI5MDE1LCJuYmYiOjE2MzI1MDI0MzUuNzI5MDIyLCJleHAiOjE2NjQwMzg0MzUuNjA1ODgxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.NIk6QznoP80R1iuN791uPEsXsD5kjzfnFT4txg6LnRCGHiVGCHNK7UoPZCW6pnjkQApHf_JxLWi0PlqbvS2acwrttWddOK8v7OQAIxb4YB9ZFrbkkRuv-kJN_THoW78Ia4jGqxkPsI4Js-wSsy2GFzfFotiYTCcDH0lY05qzQlWra1BtFVryCBevXopK9auAlM0gFQxY9_0J-DQLVVS-GSuUIizwiPLqu3PQqVWVVE5ENYw-gdKnq-RVTArtVLsGVIfiwAfEYY1gfBKDZ68UJKlTBrBbAxaYz69pDK9COnwPceR0DqMOtTO7kv4PQEJBo9Bx3c9rhsy-8f9QpzPWibt9DaPVEYoNSdeitxIeet90xS57d42JsB-6w-443Imgt9ab9meS_8-qKrSMd7d4NC9vja1ZyTWeTusGn-OtzgRNT3ph5-lv560g4UgbCq8OswPb-HOt8WxEaDc0dYfgcaFPyOWeljW9R_o6pqPfmWUArnIlRGgypKl0t6ltekCtB4gwKWUTLK9emaU4Hn4BD4oG1y6dMPo1eJ9ALl2tbGzkkZzedjzdHzvUZ_YDBUXZCojdiEkg9fMVG0PDe6SWtXq3PRJjWBcIQV1tZqLm7qHT5vclQLOkcK_6RUmiDQeCMbiOHCDGFy3-UHZofxPDBOSMw9qda1sSHrT0M2dy3v4",
-											"type": "string"
+											"name": "show history operations of teeth with teeth id",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://127.0.0.1:8000/api/doctor/show-operations/1",
+													"protocol": "http",
+													"host": [
+														"127",
+														"0",
+														"0",
+														"1"
+													],
+													"port": "8000",
+													"path": [
+														"api",
+														"doctor",
+														"show-operations",
+														"1"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Host",
+													"value": "127.0.0.1:8000"
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 06 Oct 2021 12:03:40 GMT"
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 06 Oct 2021 12:03:40 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "close"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "PHP/7.4.6"
+												},
+												{
+													"key": "Cache-Control",
+													"value": "no-cache, private"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "Access-Control-Allow-Methods",
+													"value": "GET, POST, PUT, DELETE, OPTIONS"
+												},
+												{
+													"key": "Access-Control-Allow-Headers",
+													"value": "X-Requested-With, Content-Type, X-Token-Auth, Authorization"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "60"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "58"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"operation\": \"repair\",\n            \"cost\": 10,\n            \"name\": null,\n            \"number\": null,\n            \"patient_id\": null,\n            \"visit_id\": 1,\n            \"teeth_id\": 1\n        }\n    ],\n    \"status\": \"success\",\n    \"error\": \"\"\n}"
 										}
 									]
 								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:8000/api/doctor/show-enter-patients",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "8000",
-									"path": [
-										"api",
-										"doctor",
-										"show-enter-patients"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "patients visits",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTZkYjQ2MWQyNWU3MmMwNWZlZTRmYzE5M2Y5YzQxZWQwZmY2YzY5NzgxMzk1OTljZjY0NDY0NjUzYWI5MGJkNTQzZTY3MjQ1OTUyNWM1OTQiLCJpYXQiOjE2MzI1MDI0MzUuNzI5MDE1LCJuYmYiOjE2MzI1MDI0MzUuNzI5MDIyLCJleHAiOjE2NjQwMzg0MzUuNjA1ODgxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.NIk6QznoP80R1iuN791uPEsXsD5kjzfnFT4txg6LnRCGHiVGCHNK7UoPZCW6pnjkQApHf_JxLWi0PlqbvS2acwrttWddOK8v7OQAIxb4YB9ZFrbkkRuv-kJN_THoW78Ia4jGqxkPsI4Js-wSsy2GFzfFotiYTCcDH0lY05qzQlWra1BtFVryCBevXopK9auAlM0gFQxY9_0J-DQLVVS-GSuUIizwiPLqu3PQqVWVVE5ENYw-gdKnq-RVTArtVLsGVIfiwAfEYY1gfBKDZ68UJKlTBrBbAxaYz69pDK9COnwPceR0DqMOtTO7kv4PQEJBo9Bx3c9rhsy-8f9QpzPWibt9DaPVEYoNSdeitxIeet90xS57d42JsB-6w-443Imgt9ab9meS_8-qKrSMd7d4NC9vja1ZyTWeTusGn-OtzgRNT3ph5-lv560g4UgbCq8OswPb-HOt8WxEaDc0dYfgcaFPyOWeljW9R_o6pqPfmWUArnIlRGgypKl0t6ltekCtB4gwKWUTLK9emaU4Hn4BD4oG1y6dMPo1eJ9ALl2tbGzkkZzedjzdHzvUZ_YDBUXZCojdiEkg9fMVG0PDe6SWtXq3PRJjWBcIQV1tZqLm7qHT5vclQLOkcK_6RUmiDQeCMbiOHCDGFy3-UHZofxPDBOSMw9qda1sSHrT0M2dy3v4",
-											"type": "string"
+								{
+									"name": "update operation of teeth (operation of teeth id)",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYmNhMTRmZThiZWVmOWQ3ZTY5YWIxYWE3ZTZkNWJkZGEwYjY3ZWY3ZGRkMDJhMjBjMmUxZmYzMWQ0NzExYTJhZGI2OGVlODEzOWRkYzMzMmMiLCJpYXQiOjE2MzM1NTc4MTAuNjEyMzc0LCJuYmYiOjE2MzM1NTc4MTAuNjEyMzksImV4cCI6MTY2NTA5MzgxMC42MDAwNzYsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.AueXc1KXt8lg_imTqQRakKTKTdjIvieSPD9yeJYyhdwfMOggKzEpI6ZcQVh4RiqjpphHWNAON3mEiQ8hA4Qm3ySICt1penf8LB9kNFw4BVyZThV-POsR5jpz05pZvX8rdP6n1YAXl1br_QLckLpHIEam2AbzWnVyS67Bp6ZNDe_grq_3RtboLso65bIptJqbW17K3zEt85IprX2c3CLgALVxwgAvRtTZxg7yis5wmvinNMVvAwv_iaCtyZIrPu4AeG23t_wGhMuc7QcyigxB-4SDHyRn_8z5T7pcdnegtQccHd5g7qdvfWeEXn_Nh11dkP3uaw2IUkRStt8ySscsT1vHB2SoZ9CnUQ6OaEWf2KBh0mGm09KjyUrirVwR0R7PCdC7v-g0hvYeHFBKXPKVhDDn7BIi4N42r2iHXs6uGg5zPedsQRTWe2vKbxonymYhgZac3cTF6IppiTf0Ikm52iAMelJorxzsX8sw2Pp9_uJBvmR2SMPFinmD0Nb-beirznr9DvlbJQdAfTEtDNBmR0FFJx2JURodTBivXZ6CVOGA0MKeY6m7m9U23UuHIaUvzPM-l4hfoTlHAwXdwHixxYzxsIde6sPxNOGA2Nywuavn3wuXkaeCX2GAAk1iD_ZIyNAj_YLL97waP1q8xXc75cjTUp4QG-SOXv5Um5arZ00",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "cost",
+													"value": "20",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/api/doctor/update-operation-teeth/2",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"doctor",
+												"update-operation-teeth",
+												"2"
+											]
 										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:8000/api/doctor/show-patients-visits/1",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "8000",
-									"path": [
-										"api",
-										"doctor",
-										"show-patients-visits",
-										"1"
-									]
+									},
+									"response": []
 								}
-							},
-							"response": []
+							]
 						},
 						{
-							"name": "show visit detials",
+							"name": "initial exam((teeth id )",
 							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiODA1NWZjODBiN2Y1NmNkYWM2OTM0YjA3NTZkYWM1OGQyYTAzZWQwNWMyZjM5ZmVjOGQ5MTBmZTg1NzYxMTM3YjNhOWY2NTlkMTQ3ZmMwZWIiLCJpYXQiOjE2MzI5MDIzNjIuODc4MzM3LCJuYmYiOjE2MzI5MDIzNjIuODc4MzQzLCJleHAiOjE2NjQ0MzgzNjIuNTc5NTUzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.rXsF3Qjd3oBWUQrYM8g03df5MBChJst_oMAkdmHl31SCgqmBZRdTAZse22n1_rQHt0m_-8Fz7SuBN_6paCUTTj1k3neHo9WZmWg1j7gYL63GBiyqywHLLwdUp8LOx4LwVH1U-hgDUgHO-3nKpKHNbQp77KY9ygvB2XVCWBHmxpwJo1-SWS91MO93Tg1qCe0N3GSsRkRyeyxgz-taj1verdb_WVsQDPcutyCmuzI22G7FN8mRa3HDVhK2DvoebLL1gSNqj5oLSY_rCTDrliJ5a4XKG4f-HcALCyvTrnMNXMFcEMUFQBoA93QpPT85YoO9vS3NBCBzfFZ1G-WzWPeYgWE_8RmhYPLG-LSRcMtIPfU_3HYtgvaVkILAI_CtbWRw7EAICl1fkZwi5yNGLVDuxnuwyAbt8Asz1b65piWFoXjf-pSOnUeSKREmEdJ5JoZ3Wy7GDg-I1VDTSNF92-WleHrGQvAQbPaJyIGgnPpxw1manX87mtcTl74qsJOdkewHXsiIGfWQNSOTHTlozS6h53qcZTRTvTNGGf4KyQgUDJerZ9kewiFhGx_y6n7rC0B8OXkPSQgVbsBIiw6U6vdBJuVcwRuYWa1PewLsMtf2oIEIZmaCRxDTQGOWOXZNFtseF70K8JxZue2DoaQLW54nh4COqccy-Wj8atbFMsaIJq8",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:8000/api/doctor/show-visit-detials/1",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "8000",
-									"path": [
-										"api",
-										"doctor",
-										"show-visit-detials",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "initial exam",
-							"request": {
-								"method": "POST",
+								"method": "PUT",
 								"header": [],
 								"body": {
-									"mode": "formdata",
-									"formdata": [
+									"mode": "urlencoded",
+									"urlencoded": [
 										{
-											"key": "teeths[]",
-											"value": "a",
-											"type": "text"
-										},
-										{
-											"key": "teeths[]",
-											"value": "b",
-											"type": "text"
-										},
-										{
-											"key": "status[]",
-											"value": "good",
-											"type": "text"
-										},
-										{
-											"key": "status[]",
+											"key": "teeth_status",
 											"value": "bad",
 											"type": "text"
 										}
@@ -725,66 +820,22 @@
 							"response": []
 						},
 						{
-							"name": "show operations",
+							"name": "show visit detials",
 							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:8000/api/doctor/show-operations",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "8000",
-									"path": [
-										"api",
-										"doctor",
-										"show-operations"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "set operation for teeth",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
+								"auth": {
+									"type": "bearer",
+									"bearer": [
 										{
-											"key": "teeth_name",
-											"value": "a",
-											"type": "text"
-										},
-										{
-											"key": "teeth_mumber",
-											"value": "1",
-											"type": "text"
-										},
-										{
-											"key": "operation",
-											"value": "repair",
-											"type": "text"
-										},
-										{
-											"key": "cost",
-											"value": "10",
-											"type": "text"
-										},
-										{
-											"key": "visit_id",
-											"value": "1",
-											"type": "text"
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYmNhMTRmZThiZWVmOWQ3ZTY5YWIxYWE3ZTZkNWJkZGEwYjY3ZWY3ZGRkMDJhMjBjMmUxZmYzMWQ0NzExYTJhZGI2OGVlODEzOWRkYzMzMmMiLCJpYXQiOjE2MzM1NTc4MTAuNjEyMzc0LCJuYmYiOjE2MzM1NTc4MTAuNjEyMzksImV4cCI6MTY2NTA5MzgxMC42MDAwNzYsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.AueXc1KXt8lg_imTqQRakKTKTdjIvieSPD9yeJYyhdwfMOggKzEpI6ZcQVh4RiqjpphHWNAON3mEiQ8hA4Qm3ySICt1penf8LB9kNFw4BVyZThV-POsR5jpz05pZvX8rdP6n1YAXl1br_QLckLpHIEam2AbzWnVyS67Bp6ZNDe_grq_3RtboLso65bIptJqbW17K3zEt85IprX2c3CLgALVxwgAvRtTZxg7yis5wmvinNMVvAwv_iaCtyZIrPu4AeG23t_wGhMuc7QcyigxB-4SDHyRn_8z5T7pcdnegtQccHd5g7qdvfWeEXn_Nh11dkP3uaw2IUkRStt8ySscsT1vHB2SoZ9CnUQ6OaEWf2KBh0mGm09KjyUrirVwR0R7PCdC7v-g0hvYeHFBKXPKVhDDn7BIi4N42r2iHXs6uGg5zPedsQRTWe2vKbxonymYhgZac3cTF6IppiTf0Ikm52iAMelJorxzsX8sw2Pp9_uJBvmR2SMPFinmD0Nb-beirznr9DvlbJQdAfTEtDNBmR0FFJx2JURodTBivXZ6CVOGA0MKeY6m7m9U23UuHIaUvzPM-l4hfoTlHAwXdwHixxYzxsIde6sPxNOGA2Nywuavn3wuXkaeCX2GAAk1iD_ZIyNAj_YLL97waP1q8xXc75cjTUp4QG-SOXv5Um5arZ00",
+											"type": "string"
 										}
 									]
 								},
+								"method": "GET",
+								"header": [],
 								"url": {
-									"raw": "http://127.0.0.1:8000/api/doctor/set-operation-teeth/1",
+									"raw": "http://127.0.0.1:8000/api/doctor/show-visit-detials/1",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -796,7 +847,7 @@
 									"path": [
 										"api",
 										"doctor",
-										"set-operation-teeth",
+										"show-visit-detials",
 										"1"
 									]
 								}
@@ -806,64 +857,437 @@
 					]
 				},
 				{
-					"name": "update profile",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
+					"name": "visits",
+					"item": [
+						{
+							"name": "show visits for doctor",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjk4Y2U1NDU2NDFkMDllYjY3ZDUwZTE5YTRhYWQ2NjgxMGRiZGM3NjJhMzY0MTMyMGU4NDgxNzQyYzE3YzQ0YTY2YzAxMTYwNGMyNmRiYzQiLCJpYXQiOjE2MzM1MzM1MTYuNjk3MjI2LCJuYmYiOjE2MzM1MzM1MTYuNjk3MjY1LCJleHAiOjE2NjUwNjk1MTYuNjYyOTc4LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.tHBQBYpckWeSPcmgtmWgCSbTmbEfpW_1N5HaOeZNiX_QIRQBfmXqHA8nb10Y7IUDKc5IbdmTnDA1thvVTK4HzENZWBhP5NAe69lo2YsQAnhOsotJf2xsMUCeuZcK9r7ijgEs9ti43C7CwZyVra1U7qdJN6usKuH8LMcOy9BsuSx3XWddHfJIoVVgdov3qu6K57Wro26YcOCtttAZVinL1Bc65Fn66E8YYvZfA91ggixa9pe1MduVtOGN-HswJJuGl7OxUdfXxkv85kpBy-mlNC9m-YYW8pTeu62iFqBuoLS094L6-eLE_GNc9o1QzgMR923_qPakDAOkb2amt02eXq2jjqY2P4DYXLL6AaMy5khjUb16SdeCuoJOxI8YocThOi_YxD1QvmJXUMxJyQCkMlwBtTyl-cg8FP1GoZGMpR6W-b8Rl0e6X5hw4OxgpdoK-aUGURjak1l_BtLyHqkwTR_uzaoAIsCuyRxm5esdt6LrltxurSZbAgtYFYVh_LlyPnKRdIflNku3B-MGZn4s2hXHWZAQbsm_0Rhd4Yr2fwfuNaX1Jh0y2Y-2X1808GJwObFlTsRzOqfiqMz-pKjdLXBfj8rKikQLGomq9kHx5iJwJ1TynULZETMIIorKftZLMZqPKzYa2foF6g0k30KqWEfs81btmsRLGFQB-gz62Io",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/doctor/visits",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"doctor",
+										"visits"
+									],
+									"query": [
+										{
+											"key": "doctor_id",
+											"value": "2",
+											"disabled": true
+										},
+										{
+											"key": "date",
+											"value": "2021-09-14",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "منتظر",
+											"disabled": true
+										},
+										{
+											"key": "patient_id",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "nurse_id",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "phone",
+											"value": "1609235717365",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
 								{
-									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNzJhNzE0YThhNGY0MGZhOTIxNDdhMjU3NmVjYWE3YWI2ZDQ3NTg0ODJiN2U4MjIzZjJhYjQ3NGM5NTIzNTM3N2U0ZGJhZmJmZWJkZWM1YWMiLCJpYXQiOjE2MzI0MDMyMjYuOTE2MTczLCJuYmYiOjE2MzI0MDMyMjYuOTE2MTc3LCJleHAiOjE2NjM5MzkyMjYuODUwNjcsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.O5-KYrSY8LmXZ5bz1ZjuitoL24P4zLKnPOHoWoqQRXTPduvruHckTPKxW0jfPHy6enCusuC5E5rPGbdoLMQVunXInUx9gFcJ3n19UlMXYVV-FZFKWkXs1du7ElZq4HsEEAIacrzXyg1sWMfBFfC2GIKYSTLLUu30_gM5qaZMNfcxK4_ohjIyUcxxeLkMF7hXbw_ejDlF6wfNAC3JPfshpwRF893I5efPsY1oQTZ_35IsUlk-cmFo8Cfak4EdiBbKeyVqk4j8QUe07bBsWM0spMslM7RH-3aiJWqMdUJ1CcunfK3EXwhhyZeUqngyFls9JorC9l_zCj_58LfPhB81CHKUK21dB58dLnJAUKHom8buiHMFLjkWha_yhL7gdvMnBJ9IQORmSoP3cz02yYL9V-h4Mu4lBx675IKWaDqciu-3r6v5G3EBddrg7jg6jVzljzNycz7LUdqalJoWLdwIBxHrq2Yi7N1Un2ALf1hh83S47dupeN-lzgrdbrDU0jygNPOpzSs_7K2dLmaV3KxfLBXP3VP8AxvWwcQ8gC_g4A5DCHq-6jktuQqnXr7zYzvTkrgdve4XJ6a3LIYTiGV1JTWGeN8vb3rcp8Q8owNlWETwnbEPna3GxmBRiC4sgozNwMqrWE4uk8vP3AAlFzrpIjoNv9hgDM7quVZtgcIej6A",
-									"type": "string"
+									"name": "show visits",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://127.0.0.1:8000/api/doctor/visits",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"doctor",
+												"visits"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "127.0.0.1:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 06 Oct 2021 14:17:23 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 06 Oct 2021 14:17:23 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/7.4.6"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "X-Requested-With, Content-Type, X-Token-Auth, Authorization"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "58"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": [\n        {\n            \"id\": 50,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"جاهز للدفع\",\n            \"doctor_id\": 1,\n            \"nurse_id\": 1,\n            \"patient_id\": 1,\n            \"patient\": {\n                \"id\": 1,\n                \"name\": \"Hossam\",\n                \"phone\": \"01010079798\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 1,\n                \"name\": \"احمد\"\n            }\n        },\n        {\n            \"id\": 49,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"مع الطبيب\",\n            \"doctor_id\": 1,\n            \"nurse_id\": 1,\n            \"patient_id\": 5,\n            \"patient\": {\n                \"id\": 5,\n                \"name\": \"Miss Carolina Hane V\",\n                \"phone\": \"+3332531550483\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 1,\n                \"name\": \"احمد\"\n            }\n        },\n        {\n            \"id\": 48,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"جاهز للدفع\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 2,\n            \"patient_id\": 3,\n            \"patient\": {\n                \"id\": 3,\n                \"name\": \"Prof. Iva Hyatt\",\n                \"phone\": \"+9653263116150\"\n            },\n            \"nurse\": {\n                \"id\": 2,\n                \"name\": \"محمود\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 47,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"جاهز للدفع\",\n            \"doctor_id\": 1,\n            \"nurse_id\": 1,\n            \"patient_id\": 4,\n            \"patient\": {\n                \"id\": 4,\n                \"name\": \"Lacy Swaniawski\",\n                \"phone\": \"+5633229969404\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 1,\n                \"name\": \"احمد\"\n            }\n        },\n        {\n            \"id\": 46,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"منتظر\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 2,\n            \"patient_id\": 4,\n            \"patient\": {\n                \"id\": 4,\n                \"name\": \"Lacy Swaniawski\",\n                \"phone\": \"+5633229969404\"\n            },\n            \"nurse\": {\n                \"id\": 2,\n                \"name\": \"محمود\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 45,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"مع الطبيب\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 1,\n            \"patient_id\": 6,\n            \"patient\": {\n                \"id\": 6,\n                \"name\": \"Marcelina Shields Jr.\",\n                \"phone\": \"+4846388406420\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 44,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"انتهت الزياره\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 1,\n            \"patient_id\": 5,\n            \"patient\": {\n                \"id\": 5,\n                \"name\": \"Miss Carolina Hane V\",\n                \"phone\": \"+3332531550483\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 43,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"انتهت الزياره\",\n            \"doctor_id\": 1,\n            \"nurse_id\": 2,\n            \"patient_id\": 7,\n            \"patient\": {\n                \"id\": 7,\n                \"name\": \"Edmond Cartwright\",\n                \"phone\": \"+6664467562613\"\n            },\n            \"nurse\": {\n                \"id\": 2,\n                \"name\": \"محمود\"\n            },\n            \"doctor\": {\n                \"id\": 1,\n                \"name\": \"احمد\"\n            }\n        },\n        {\n            \"id\": 42,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"انتهت الزياره\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 1,\n            \"patient_id\": 1,\n            \"patient\": {\n                \"id\": 1,\n                \"name\": \"Hossam\",\n                \"phone\": \"01010079798\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 41,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"مع الطبيب\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 1,\n            \"patient_id\": 8,\n            \"patient\": {\n                \"id\": 8,\n                \"name\": \"Henriette Cremin\",\n                \"phone\": \"+6687852363947\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 40,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"منتظر\",\n            \"doctor_id\": 1,\n            \"nurse_id\": 1,\n            \"patient_id\": 3,\n            \"patient\": {\n                \"id\": 3,\n                \"name\": \"Prof. Iva Hyatt\",\n                \"phone\": \"+9653263116150\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 1,\n                \"name\": \"احمد\"\n            }\n        },\n        {\n            \"id\": 39,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"منتظر\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 1,\n            \"patient_id\": 2,\n            \"patient\": {\n                \"id\": 2,\n                \"name\": \"Ms. Elsa Auer\",\n                \"phone\": \"+7461845860182\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 38,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"مع الطبيب\",\n            \"doctor_id\": 1,\n            \"nurse_id\": 2,\n            \"patient_id\": 4,\n            \"patient\": {\n                \"id\": 4,\n                \"name\": \"Lacy Swaniawski\",\n                \"phone\": \"+5633229969404\"\n            },\n            \"nurse\": {\n                \"id\": 2,\n                \"name\": \"محمود\"\n            },\n            \"doctor\": {\n                \"id\": 1,\n                \"name\": \"احمد\"\n            }\n        },\n        {\n            \"id\": 37,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"جاهز للدفع\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 2,\n            \"patient_id\": 4,\n            \"patient\": {\n                \"id\": 4,\n                \"name\": \"Lacy Swaniawski\",\n                \"phone\": \"+5633229969404\"\n            },\n            \"nurse\": {\n                \"id\": 2,\n                \"name\": \"محمود\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 36,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"مع الطبيب\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 2,\n            \"patient_id\": 5,\n            \"patient\": {\n                \"id\": 5,\n                \"name\": \"Miss Carolina Hane V\",\n                \"phone\": \"+3332531550483\"\n            },\n            \"nurse\": {\n                \"id\": 2,\n                \"name\": \"محمود\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 35,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"انتهت الزياره\",\n            \"doctor_id\": 1,\n            \"nurse_id\": 2,\n            \"patient_id\": 7,\n            \"patient\": {\n                \"id\": 7,\n                \"name\": \"Edmond Cartwright\",\n                \"phone\": \"+6664467562613\"\n            },\n            \"nurse\": {\n                \"id\": 2,\n                \"name\": \"محمود\"\n            },\n            \"doctor\": {\n                \"id\": 1,\n                \"name\": \"احمد\"\n            }\n        },\n        {\n            \"id\": 34,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"انتهت الزياره\",\n            \"doctor_id\": 1,\n            \"nurse_id\": 2,\n            \"patient_id\": 3,\n            \"patient\": {\n                \"id\": 3,\n                \"name\": \"Prof. Iva Hyatt\",\n                \"phone\": \"+9653263116150\"\n            },\n            \"nurse\": {\n                \"id\": 2,\n                \"name\": \"محمود\"\n            },\n            \"doctor\": {\n                \"id\": 1,\n                \"name\": \"احمد\"\n            }\n        },\n        {\n            \"id\": 33,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"جاهز للدفع\",\n            \"doctor_id\": 1,\n            \"nurse_id\": 1,\n            \"patient_id\": 6,\n            \"patient\": {\n                \"id\": 6,\n                \"name\": \"Marcelina Shields Jr.\",\n                \"phone\": \"+4846388406420\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 1,\n                \"name\": \"احمد\"\n            }\n        },\n        {\n            \"id\": 32,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"جاهز للدفع\",\n            \"doctor_id\": 1,\n            \"nurse_id\": 2,\n            \"patient_id\": 1,\n            \"patient\": {\n                \"id\": 1,\n                \"name\": \"Hossam\",\n                \"phone\": \"01010079798\"\n            },\n            \"nurse\": {\n                \"id\": 2,\n                \"name\": \"محمود\"\n            },\n            \"doctor\": {\n                \"id\": 1,\n                \"name\": \"احمد\"\n            }\n        },\n        {\n            \"id\": 31,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"مع الطبيب\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 1,\n            \"patient_id\": 2,\n            \"patient\": {\n                \"id\": 2,\n                \"name\": \"Ms. Elsa Auer\",\n                \"phone\": \"+7461845860182\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 30,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"منتظر\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 1,\n            \"patient_id\": 4,\n            \"patient\": {\n                \"id\": 4,\n                \"name\": \"Lacy Swaniawski\",\n                \"phone\": \"+5633229969404\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 29,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"مع الطبيب\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 1,\n            \"patient_id\": 3,\n            \"patient\": {\n                \"id\": 3,\n                \"name\": \"Prof. Iva Hyatt\",\n                \"phone\": \"+9653263116150\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 28,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"منتظر\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 1,\n            \"patient_id\": 6,\n            \"patient\": {\n                \"id\": 6,\n                \"name\": \"Marcelina Shields Jr.\",\n                \"phone\": \"+4846388406420\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 27,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"مع الطبيب\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 1,\n            \"patient_id\": 2,\n            \"patient\": {\n                \"id\": 2,\n                \"name\": \"Ms. Elsa Auer\",\n                \"phone\": \"+7461845860182\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 26,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"جاهز للدفع\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 2,\n            \"patient_id\": 3,\n            \"patient\": {\n                \"id\": 3,\n                \"name\": \"Prof. Iva Hyatt\",\n                \"phone\": \"+9653263116150\"\n            },\n            \"nurse\": {\n                \"id\": 2,\n                \"name\": \"محمود\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 25,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"انتهت الزياره\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 1,\n            \"patient_id\": 7,\n            \"patient\": {\n                \"id\": 7,\n                \"name\": \"Edmond Cartwright\",\n                \"phone\": \"+6664467562613\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 24,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"جاهز للدفع\",\n            \"doctor_id\": 1,\n            \"nurse_id\": 2,\n            \"patient_id\": 4,\n            \"patient\": {\n                \"id\": 4,\n                \"name\": \"Lacy Swaniawski\",\n                \"phone\": \"+5633229969404\"\n            },\n            \"nurse\": {\n                \"id\": 2,\n                \"name\": \"محمود\"\n            },\n            \"doctor\": {\n                \"id\": 1,\n                \"name\": \"احمد\"\n            }\n        },\n        {\n            \"id\": 23,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"مع الطبيب\",\n            \"doctor_id\": 1,\n            \"nurse_id\": 1,\n            \"patient_id\": 7,\n            \"patient\": {\n                \"id\": 7,\n                \"name\": \"Edmond Cartwright\",\n                \"phone\": \"+6664467562613\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 1,\n                \"name\": \"احمد\"\n            }\n        },\n        {\n            \"id\": 22,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"جاهز للدفع\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 1,\n            \"patient_id\": 2,\n            \"patient\": {\n                \"id\": 2,\n                \"name\": \"Ms. Elsa Auer\",\n                \"phone\": \"+7461845860182\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 21,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"منتظر\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 2,\n            \"patient_id\": 5,\n            \"patient\": {\n                \"id\": 5,\n                \"name\": \"Miss Carolina Hane V\",\n                \"phone\": \"+3332531550483\"\n            },\n            \"nurse\": {\n                \"id\": 2,\n                \"name\": \"محمود\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 20,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"منتظر\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 2,\n            \"patient_id\": 4,\n            \"patient\": {\n                \"id\": 4,\n                \"name\": \"Lacy Swaniawski\",\n                \"phone\": \"+5633229969404\"\n            },\n            \"nurse\": {\n                \"id\": 2,\n                \"name\": \"محمود\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 19,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"مع الطبيب\",\n            \"doctor_id\": 1,\n            \"nurse_id\": 1,\n            \"patient_id\": 7,\n            \"patient\": {\n                \"id\": 7,\n                \"name\": \"Edmond Cartwright\",\n                \"phone\": \"+6664467562613\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 1,\n                \"name\": \"احمد\"\n            }\n        },\n        {\n            \"id\": 18,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"منتظر\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 1,\n            \"patient_id\": 4,\n            \"patient\": {\n                \"id\": 4,\n                \"name\": \"Lacy Swaniawski\",\n                \"phone\": \"+5633229969404\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 17,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"منتظر\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 2,\n            \"patient_id\": 8,\n            \"patient\": {\n                \"id\": 8,\n                \"name\": \"Henriette Cremin\",\n                \"phone\": \"+6687852363947\"\n            },\n            \"nurse\": {\n                \"id\": 2,\n                \"name\": \"محمود\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 16,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"منتظر\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 1,\n            \"patient_id\": 6,\n            \"patient\": {\n                \"id\": 6,\n                \"name\": \"Marcelina Shields Jr.\",\n                \"phone\": \"+4846388406420\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 15,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"جاهز للدفع\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 2,\n            \"patient_id\": 4,\n            \"patient\": {\n                \"id\": 4,\n                \"name\": \"Lacy Swaniawski\",\n                \"phone\": \"+5633229969404\"\n            },\n            \"nurse\": {\n                \"id\": 2,\n                \"name\": \"محمود\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 14,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"مع الطبيب\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 1,\n            \"patient_id\": 6,\n            \"patient\": {\n                \"id\": 6,\n                \"name\": \"Marcelina Shields Jr.\",\n                \"phone\": \"+4846388406420\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 13,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"منتظر\",\n            \"doctor_id\": 1,\n            \"nurse_id\": 2,\n            \"patient_id\": 5,\n            \"patient\": {\n                \"id\": 5,\n                \"name\": \"Miss Carolina Hane V\",\n                \"phone\": \"+3332531550483\"\n            },\n            \"nurse\": {\n                \"id\": 2,\n                \"name\": \"محمود\"\n            },\n            \"doctor\": {\n                \"id\": 1,\n                \"name\": \"احمد\"\n            }\n        },\n        {\n            \"id\": 12,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"منتظر\",\n            \"doctor_id\": 1,\n            \"nurse_id\": 1,\n            \"patient_id\": 1,\n            \"patient\": {\n                \"id\": 1,\n                \"name\": \"Hossam\",\n                \"phone\": \"01010079798\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 1,\n                \"name\": \"احمد\"\n            }\n        },\n        {\n            \"id\": 11,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"منتظر\",\n            \"doctor_id\": 1,\n            \"nurse_id\": 2,\n            \"patient_id\": 2,\n            \"patient\": {\n                \"id\": 2,\n                \"name\": \"Ms. Elsa Auer\",\n                \"phone\": \"+7461845860182\"\n            },\n            \"nurse\": {\n                \"id\": 2,\n                \"name\": \"محمود\"\n            },\n            \"doctor\": {\n                \"id\": 1,\n                \"name\": \"احمد\"\n            }\n        },\n        {\n            \"id\": 10,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"انتهت الزياره\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 1,\n            \"patient_id\": 6,\n            \"patient\": {\n                \"id\": 6,\n                \"name\": \"Marcelina Shields Jr.\",\n                \"phone\": \"+4846388406420\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 9,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"مع الطبيب\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 2,\n            \"patient_id\": 6,\n            \"patient\": {\n                \"id\": 6,\n                \"name\": \"Marcelina Shields Jr.\",\n                \"phone\": \"+4846388406420\"\n            },\n            \"nurse\": {\n                \"id\": 2,\n                \"name\": \"محمود\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 8,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"مع الطبيب\",\n            \"doctor_id\": 1,\n            \"nurse_id\": 2,\n            \"patient_id\": 9,\n            \"patient\": {\n                \"id\": 9,\n                \"name\": \"Margret Waelchi\",\n                \"phone\": \"+1302604252470\"\n            },\n            \"nurse\": {\n                \"id\": 2,\n                \"name\": \"محمود\"\n            },\n            \"doctor\": {\n                \"id\": 1,\n                \"name\": \"احمد\"\n            }\n        },\n        {\n            \"id\": 7,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"منتظر\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 2,\n            \"patient_id\": 6,\n            \"patient\": {\n                \"id\": 6,\n                \"name\": \"Marcelina Shields Jr.\",\n                \"phone\": \"+4846388406420\"\n            },\n            \"nurse\": {\n                \"id\": 2,\n                \"name\": \"محمود\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 6,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"منتظر\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 2,\n            \"patient_id\": 3,\n            \"patient\": {\n                \"id\": 3,\n                \"name\": \"Prof. Iva Hyatt\",\n                \"phone\": \"+9653263116150\"\n            },\n            \"nurse\": {\n                \"id\": 2,\n                \"name\": \"محمود\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 5,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"جاهز للدفع\",\n            \"doctor_id\": 1,\n            \"nurse_id\": 2,\n            \"patient_id\": 7,\n            \"patient\": {\n                \"id\": 7,\n                \"name\": \"Edmond Cartwright\",\n                \"phone\": \"+6664467562613\"\n            },\n            \"nurse\": {\n                \"id\": 2,\n                \"name\": \"محمود\"\n            },\n            \"doctor\": {\n                \"id\": 1,\n                \"name\": \"احمد\"\n            }\n        },\n        {\n            \"id\": 4,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"مع الطبيب\",\n            \"doctor_id\": 2,\n            \"nurse_id\": 1,\n            \"patient_id\": 8,\n            \"patient\": {\n                \"id\": 8,\n                \"name\": \"Henriette Cremin\",\n                \"phone\": \"+6687852363947\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 2,\n                \"name\": \"محمد\"\n            }\n        },\n        {\n            \"id\": 3,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"انتهت الزياره\",\n            \"doctor_id\": 1,\n            \"nurse_id\": 2,\n            \"patient_id\": 4,\n            \"patient\": {\n                \"id\": 4,\n                \"name\": \"Lacy Swaniawski\",\n                \"phone\": \"+5633229969404\"\n            },\n            \"nurse\": {\n                \"id\": 2,\n                \"name\": \"محمود\"\n            },\n            \"doctor\": {\n                \"id\": 1,\n                \"name\": \"احمد\"\n            }\n        },\n        {\n            \"id\": 2,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"مع الطبيب\",\n            \"doctor_id\": 1,\n            \"nurse_id\": 1,\n            \"patient_id\": 1,\n            \"patient\": {\n                \"id\": 1,\n                \"name\": \"Hossam\",\n                \"phone\": \"01010079798\"\n            },\n            \"nurse\": {\n                \"id\": 1,\n                \"name\": \"يوسف\"\n            },\n            \"doctor\": {\n                \"id\": 1,\n                \"name\": \"احمد\"\n            }\n        },\n        {\n            \"id\": 1,\n            \"date\": \"2021-10-02\",\n            \"time\": \"04:15:00\",\n            \"piad\": 0,\n            \"status\": \"انتهت الزياره\",\n            \"doctor_id\": 1,\n            \"nurse_id\": 2,\n            \"patient_id\": 2,\n            \"patient\": {\n                \"id\": 2,\n                \"name\": \"Ms. Elsa Auer\",\n                \"phone\": \"+7461845860182\"\n            },\n            \"nurse\": {\n                \"id\": 2,\n                \"name\": \"محمود\"\n            },\n            \"doctor\": {\n                \"id\": 1,\n                \"name\": \"احمد\"\n            }\n        }\n    ],\n    \"status\": \"success\",\n    \"error\": \"\"\n}"
 								}
 							]
 						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "user_name",
-									"value": "hossam",
-									"type": "text"
+						{
+							"name": "show patient detials",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYmNhMTRmZThiZWVmOWQ3ZTY5YWIxYWE3ZTZkNWJkZGEwYjY3ZWY3ZGRkMDJhMjBjMmUxZmYzMWQ0NzExYTJhZGI2OGVlODEzOWRkYzMzMmMiLCJpYXQiOjE2MzM1NTc4MTAuNjEyMzc0LCJuYmYiOjE2MzM1NTc4MTAuNjEyMzksImV4cCI6MTY2NTA5MzgxMC42MDAwNzYsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.AueXc1KXt8lg_imTqQRakKTKTdjIvieSPD9yeJYyhdwfMOggKzEpI6ZcQVh4RiqjpphHWNAON3mEiQ8hA4Qm3ySICt1penf8LB9kNFw4BVyZThV-POsR5jpz05pZvX8rdP6n1YAXl1br_QLckLpHIEam2AbzWnVyS67Bp6ZNDe_grq_3RtboLso65bIptJqbW17K3zEt85IprX2c3CLgALVxwgAvRtTZxg7yis5wmvinNMVvAwv_iaCtyZIrPu4AeG23t_wGhMuc7QcyigxB-4SDHyRn_8z5T7pcdnegtQccHd5g7qdvfWeEXn_Nh11dkP3uaw2IUkRStt8ySscsT1vHB2SoZ9CnUQ6OaEWf2KBh0mGm09KjyUrirVwR0R7PCdC7v-g0hvYeHFBKXPKVhDDn7BIi4N42r2iHXs6uGg5zPedsQRTWe2vKbxonymYhgZac3cTF6IppiTf0Ikm52iAMelJorxzsX8sw2Pp9_uJBvmR2SMPFinmD0Nb-beirznr9DvlbJQdAfTEtDNBmR0FFJx2JURodTBivXZ6CVOGA0MKeY6m7m9U23UuHIaUvzPM-l4hfoTlHAwXdwHixxYzxsIde6sPxNOGA2Nywuavn3wuXkaeCX2GAAk1iD_ZIyNAj_YLL97waP1q8xXc75cjTUp4QG-SOXv5Um5arZ00",
+											"type": "string"
+										}
+									]
 								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/doctor/show-patient/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"doctor",
+										"show-patient",
+										"1"
+									]
+								}
+							},
+							"response": [
 								{
-									"key": "name",
-									"value": "hossam ameen",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "123456",
-									"type": "text"
-								},
-								{
-									"key": "spiecalization",
-									"value": "eyes",
-									"type": "text"
+									"name": "show patient detials",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://127.0.0.1:8000/api/doctor/show-patient/1",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"doctor",
+												"show-patient",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "127.0.0.1:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 06 Oct 2021 22:03:42 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 06 Oct 2021 22:03:42 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/7.4.6"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET, POST, PUT, DELETE, OPTIONS"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "X-Requested-With, Content-Type, X-Token-Auth, Authorization"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "58"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Hossam\",\n        \"phone\": \"01010079798\",\n        \"age\": 5,\n        \"address\": \"assuit\",\n        \"national_id\": null,\n        \"medical_history\": null,\n        \"nurse_id\": 1,\n        \"lastVisit\": {\n            \"id\": 11,\n            \"date\": \"2021-10-07\",\n            \"time\": \"12:02:00\",\n            \"piad\": 0,\n            \"status\": \"انتهت الزياره\",\n            \"doctor_id\": 1,\n            \"nurse_id\": 2,\n            \"patient_id\": 1\n        },\n        \"visits\": [\n            {\n                \"id\": 1,\n                \"date\": \"2021-10-07\",\n                \"time\": \"12:02:00\",\n                \"piad\": 0,\n                \"status\": \"انتهت الزياره\",\n                \"doctor_id\": 1,\n                \"nurse_id\": 1,\n                \"patient_id\": 1,\n                \"operations\": [\n                    {\n                        \"id\": 1,\n                        \"visit_id\": 1,\n                        \"operation\": \"repair\",\n                        \"cost\": 50\n                    }\n                ]\n            },\n            {\n                \"id\": 2,\n                \"date\": \"2021-10-07\",\n                \"time\": \"12:02:00\",\n                \"piad\": 0,\n                \"status\": \"مع الطبيب\",\n                \"doctor_id\": 1,\n                \"nurse_id\": 1,\n                \"patient_id\": 1,\n                \"operations\": []\n            },\n            {\n                \"id\": 11,\n                \"date\": \"2021-10-07\",\n                \"time\": \"12:02:00\",\n                \"piad\": 0,\n                \"status\": \"انتهت الزياره\",\n                \"doctor_id\": 1,\n                \"nurse_id\": 2,\n                \"patient_id\": 1,\n                \"operations\": []\n            },\n            {\n                \"id\": 13,\n                \"date\": \"2021-10-07\",\n                \"time\": \"12:02:00\",\n                \"piad\": 0,\n                \"status\": \"مع الطبيب\",\n                \"doctor_id\": 2,\n                \"nurse_id\": 2,\n                \"patient_id\": 1,\n                \"operations\": []\n            },\n            {\n                \"id\": 16,\n                \"date\": \"2021-10-07\",\n                \"time\": \"12:02:00\",\n                \"piad\": 0,\n                \"status\": \"جاهز للدفع\",\n                \"doctor_id\": 1,\n                \"nurse_id\": 2,\n                \"patient_id\": 1,\n                \"operations\": []\n            },\n            {\n                \"id\": 21,\n                \"date\": \"2021-10-07\",\n                \"time\": \"12:02:00\",\n                \"piad\": 0,\n                \"status\": \"جاهز للدفع\",\n                \"doctor_id\": 1,\n                \"nurse_id\": 1,\n                \"patient_id\": 1,\n                \"operations\": []\n            },\n            {\n                \"id\": 31,\n                \"date\": \"2021-10-07\",\n                \"time\": \"12:02:00\",\n                \"piad\": 0,\n                \"status\": \"مع الطبيب\",\n                \"doctor_id\": 2,\n                \"nurse_id\": 1,\n                \"patient_id\": 1,\n                \"operations\": []\n            },\n            {\n                \"id\": 41,\n                \"date\": \"2021-10-07\",\n                \"time\": \"12:02:00\",\n                \"piad\": 0,\n                \"status\": \"انتهت الزياره\",\n                \"doctor_id\": 2,\n                \"nurse_id\": 1,\n                \"patient_id\": 1,\n                \"operations\": []\n            }\n        ],\n        \"teeths\": [\n            {\n                \"id\": 1,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 2,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 3,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 4,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 5,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 6,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 7,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 8,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 9,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 10,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 11,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 12,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 13,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 14,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 15,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 16,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 17,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 18,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 19,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 20,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 21,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 22,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 23,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 24,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 25,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 26,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 27,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 28,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 29,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 30,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 31,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            },\n            {\n                \"id\": 32,\n                \"initial_status\": \"good\",\n                \"status\": null,\n                \"patient_id\": 1\n            }\n        ]\n    },\n    \"status\": \"success\",\n    \"error\": \"\"\n}"
 								}
 							]
 						},
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/doctor/update-profile",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"doctor",
-								"update-profile"
-							]
+						{
+							"name": "nurse for doctor",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMjk4Y2U1NDU2NDFkMDllYjY3ZDUwZTE5YTRhYWQ2NjgxMGRiZGM3NjJhMzY0MTMyMGU4NDgxNzQyYzE3YzQ0YTY2YzAxMTYwNGMyNmRiYzQiLCJpYXQiOjE2MzM1MzM1MTYuNjk3MjI2LCJuYmYiOjE2MzM1MzM1MTYuNjk3MjY1LCJleHAiOjE2NjUwNjk1MTYuNjYyOTc4LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.tHBQBYpckWeSPcmgtmWgCSbTmbEfpW_1N5HaOeZNiX_QIRQBfmXqHA8nb10Y7IUDKc5IbdmTnDA1thvVTK4HzENZWBhP5NAe69lo2YsQAnhOsotJf2xsMUCeuZcK9r7ijgEs9ti43C7CwZyVra1U7qdJN6usKuH8LMcOy9BsuSx3XWddHfJIoVVgdov3qu6K57Wro26YcOCtttAZVinL1Bc65Fn66E8YYvZfA91ggixa9pe1MduVtOGN-HswJJuGl7OxUdfXxkv85kpBy-mlNC9m-YYW8pTeu62iFqBuoLS094L6-eLE_GNc9o1QzgMR923_qPakDAOkb2amt02eXq2jjqY2P4DYXLL6AaMy5khjUb16SdeCuoJOxI8YocThOi_YxD1QvmJXUMxJyQCkMlwBtTyl-cg8FP1GoZGMpR6W-b8Rl0e6X5hw4OxgpdoK-aUGURjak1l_BtLyHqkwTR_uzaoAIsCuyRxm5esdt6LrltxurSZbAgtYFYVh_LlyPnKRdIflNku3B-MGZn4s2hXHWZAQbsm_0Rhd4Yr2fwfuNaX1Jh0y2Y-2X1808GJwObFlTsRzOqfiqMz-pKjdLXBfj8rKikQLGomq9kHx5iJwJ1TynULZETMIIorKftZLMZqPKzYa2foF6g0k30KqWEfs81btmsRLGFQB-gz62Io",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/doctor/nurses",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"doctor",
+										"nurses"
+									]
+								}
+							},
+							"response": []
 						},
-						"description": "                    "
-					},
-					"response": []
+						{
+							"name": "patients visits",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYmNhMTRmZThiZWVmOWQ3ZTY5YWIxYWE3ZTZkNWJkZGEwYjY3ZWY3ZGRkMDJhMjBjMmUxZmYzMWQ0NzExYTJhZGI2OGVlODEzOWRkYzMzMmMiLCJpYXQiOjE2MzM1NTc4MTAuNjEyMzc0LCJuYmYiOjE2MzM1NTc4MTAuNjEyMzksImV4cCI6MTY2NTA5MzgxMC42MDAwNzYsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.AueXc1KXt8lg_imTqQRakKTKTdjIvieSPD9yeJYyhdwfMOggKzEpI6ZcQVh4RiqjpphHWNAON3mEiQ8hA4Qm3ySICt1penf8LB9kNFw4BVyZThV-POsR5jpz05pZvX8rdP6n1YAXl1br_QLckLpHIEam2AbzWnVyS67Bp6ZNDe_grq_3RtboLso65bIptJqbW17K3zEt85IprX2c3CLgALVxwgAvRtTZxg7yis5wmvinNMVvAwv_iaCtyZIrPu4AeG23t_wGhMuc7QcyigxB-4SDHyRn_8z5T7pcdnegtQccHd5g7qdvfWeEXn_Nh11dkP3uaw2IUkRStt8ySscsT1vHB2SoZ9CnUQ6OaEWf2KBh0mGm09KjyUrirVwR0R7PCdC7v-g0hvYeHFBKXPKVhDDn7BIi4N42r2iHXs6uGg5zPedsQRTWe2vKbxonymYhgZac3cTF6IppiTf0Ikm52iAMelJorxzsX8sw2Pp9_uJBvmR2SMPFinmD0Nb-beirznr9DvlbJQdAfTEtDNBmR0FFJx2JURodTBivXZ6CVOGA0MKeY6m7m9U23UuHIaUvzPM-l4hfoTlHAwXdwHixxYzxsIde6sPxNOGA2Nywuavn3wuXkaeCX2GAAk1iD_ZIyNAj_YLL97waP1q8xXc75cjTUp4QG-SOXv5Um5arZ00",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/doctor/show-patients-visits/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"doctor",
+										"show-patients-visits",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "profile",
+					"item": [
+						{
+							"name": "show profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiODdiZmZiZGUwYzI1ZTM1YjVlOGQ5NTZiZjM5ZmU0N2E2NmEwY2ZlZmQzODNkMWRhYTJiODIyNDcxZGFiOGRiNTRlNjlmNjhlNWQ4MDdjYTAiLCJpYXQiOjE2MzMxODQ1NTcuNjc3MTQ5LCJuYmYiOjE2MzMxODQ1NTcuNjc3MTYyLCJleHAiOjE2NjQ3MjA1NTcuNjU4OTE1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.oBzpRLXI0pZ2SZmOL8RvTVg7vQzyD6pbcf3x_fhhhMew0mYL1nf96NEn4sopPlw_lpiWMFebzW1rdQsgihgbLGItiHAT7WopG545BkhazIO2DZYJf13_3JZ7s-SfsbVlbE4LHeP862c1Z2Ou8ckDRUjysK6_m4HjUv_fM2dhvOAY2q7K1owf00Br-RAuaA7NRc9YXFJyR4Lyt5b_sDyy43gvjpoziHKadnbZqe9apSB3GesK4O_E4G-6ZqT4SnVb3AgjvKuksQ3FaZCVkpQN3Iu0dSBjpdbBQ0FqLof_Rean8qOumc8A6u32QYQIiOpHz3HyTSYpi5ETExqy6FC3_9yegBFwvuE2bBOXg3VVr4fm7Uz-bmdL8o6j5idwx4VInPPI9DAjySylCyqTANW5EZw_uM8geTkINS3ycaz-t4sdKttr-EyimqWK5yLELx-YgdpkJeehhCQ-UoOymXy-rCZKeE8dC9uRvh0vyC7syyN1jR6OYW7vzQ3uWZQu1_gW_R9jE8FYv97_0Uwq6NCX7Ge0VmdXfrxTZ2oYPyhs_5d1cgleBXpx1OI77DZMYS0NhKJJz5Gzw-jlS5Zbf8L2vJ2hu3hbltR9iaq6GX_h9tX-WIS7Log8k6fuvgEHCSt74ZlgeHa-qJ6Q0gf0XqMqY77YK2q4qvrpKJ0M_H6sHGo",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/doctor/show-profile",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"doctor",
+										"show-profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNzJhNzE0YThhNGY0MGZhOTIxNDdhMjU3NmVjYWE3YWI2ZDQ3NTg0ODJiN2U4MjIzZjJhYjQ3NGM5NTIzNTM3N2U0ZGJhZmJmZWJkZWM1YWMiLCJpYXQiOjE2MzI0MDMyMjYuOTE2MTczLCJuYmYiOjE2MzI0MDMyMjYuOTE2MTc3LCJleHAiOjE2NjM5MzkyMjYuODUwNjcsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.O5-KYrSY8LmXZ5bz1ZjuitoL24P4zLKnPOHoWoqQRXTPduvruHckTPKxW0jfPHy6enCusuC5E5rPGbdoLMQVunXInUx9gFcJ3n19UlMXYVV-FZFKWkXs1du7ElZq4HsEEAIacrzXyg1sWMfBFfC2GIKYSTLLUu30_gM5qaZMNfcxK4_ohjIyUcxxeLkMF7hXbw_ejDlF6wfNAC3JPfshpwRF893I5efPsY1oQTZ_35IsUlk-cmFo8Cfak4EdiBbKeyVqk4j8QUe07bBsWM0spMslM7RH-3aiJWqMdUJ1CcunfK3EXwhhyZeUqngyFls9JorC9l_zCj_58LfPhB81CHKUK21dB58dLnJAUKHom8buiHMFLjkWha_yhL7gdvMnBJ9IQORmSoP3cz02yYL9V-h4Mu4lBx675IKWaDqciu-3r6v5G3EBddrg7jg6jVzljzNycz7LUdqalJoWLdwIBxHrq2Yi7N1Un2ALf1hh83S47dupeN-lzgrdbrDU0jygNPOpzSs_7K2dLmaV3KxfLBXP3VP8AxvWwcQ8gC_g4A5DCHq-6jktuQqnXr7zYzvTkrgdve4XJ6a3LIYTiGV1JTWGeN8vb3rcp8Q8owNlWETwnbEPna3GxmBRiC4sgozNwMqrWE4uk8vP3AAlFzrpIjoNv9hgDM7quVZtgcIej6A",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "user_name",
+											"value": "hossam",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "hossam ameen",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "spiecalization",
+											"value": "eyes",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/doctor/update-profile",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"doctor",
+										"update-profile"
+									]
+								},
+								"description": "                    "
+							},
+							"response": []
+						}
+					]
 				},
 				{
 					"name": "doctor login",
