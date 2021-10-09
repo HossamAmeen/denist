@@ -13,7 +13,7 @@ class DoctorPatientController extends Controller
     {
         if(!isset(Auth::guard('doctor-api')->user()->id))
         {
-         return $this->APIResponse(null, "you have to login", 400);
+         return $this->APIResponse(null, "you have to login", 401);
         }
 
         $data['currentVisit'] = Visit::with('patient.teeths')->where('status' , 'مع الطبيب')
@@ -29,11 +29,12 @@ class DoctorPatientController extends Controller
 
         if(!isset(Auth::guard('doctor-api')->user()->id))
         {
-         return $this->APIResponse(null, "you have to login", 400);
+         return $this->APIResponse(null, "you have to login", 401);
         }
         $nurses = Nurse::where('doctor_id' ,Auth::guard('doctor-api')->user()->id )->get();
         return $this->APIResponse($nurses, null, 200);
     }
+
     public function showVisits()
     {
         $visits = Visit::query();
@@ -68,7 +69,7 @@ class DoctorPatientController extends Controller
     {
         if(!isset(Auth::guard('doctor-api')->user()->id))
         {
-         return $this->APIResponse(null, "you have to login", 400);
+         return $this->APIResponse(null, "you have to login", 401);
         }
 
         if(request('phone') != null){
@@ -105,12 +106,9 @@ class DoctorPatientController extends Controller
     {
         if(!isset(Auth::guard('doctor-api')->user()->id))
         {
-         return $this->APIResponse(null, "you have to login", 400);
+         return $this->APIResponse(null, "you have to login", 401);
         }
-        /**
-         * ->get(['projects.id', DB::raw('sum(variations.value) as value')])
-   ->sum('value');
-         */
+        
         $visit = Visit::with(['operations'=>function($query )use ($patientId){
                          $query->where('patient_id',$patientId) ;
                         }])
@@ -127,7 +125,7 @@ class DoctorPatientController extends Controller
     {
         if(!isset(Auth::guard('doctor-api')->user()->id))
         {
-         return $this->APIResponse(null, "you have to login", 400);
+         return $this->APIResponse(null, "you have to login", 401);
         }
 
         $visit = Visit::with(['patient',"operations"])->find($visitId);
@@ -145,7 +143,7 @@ class DoctorPatientController extends Controller
     {
         if(!isset(Auth::guard('doctor-api')->user()->id))
         {
-         return $this->APIResponse(null, "you have to login", 400);
+         return $this->APIResponse(null, "you have to login", 401);
         }
         $operations = Operation::with('operations')
         // ->where('doctor_id' , Auth::guard('doctor-api')->user()->id)
@@ -163,7 +161,7 @@ class DoctorPatientController extends Controller
     {
         if(!isset(Auth::guard('doctor-api')->user()->id))
         {
-         return $this->APIResponse(null, "you have to login", 400);
+         return $this->APIResponse(null, "you have to login", 401);
         }
         $operation = TeethOperation::create([
             'operation'=>$request->operation ,
@@ -190,6 +188,7 @@ class DoctorPatientController extends Controller
         }
         return $this->APIResponse(null, null, 200);
     }
+
     public function deleteOperationTeeth($operationTeethId)
     {
         $operation = TeethOperation::find($operationTeethId);
@@ -202,7 +201,9 @@ class DoctorPatientController extends Controller
             'status'=>$lastoperation->operation,
              ]);
             $operation->delete();  
+            return $this->APIResponse(null, null, 200);
         }
-        return $this->APIResponse(null, null, 200);
+        else
+            return $this->APIResponse(null, 'this operation not found', 400);
     }
 }

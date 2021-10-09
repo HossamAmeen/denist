@@ -58,7 +58,7 @@ class DoctorController extends Controller
     {
         if(!isset(Auth::guard('doctor-api')->user()->id))
         {
-         return $this->APIResponse(null, "you have to login", 400);
+         return $this->APIResponse(null, "you have to login", 401);
         }
         $doctor = Doctor::find(Auth::guard('doctor-api')->user()->id);
         
@@ -70,7 +70,7 @@ class DoctorController extends Controller
 
        if(!isset(Auth::guard('doctor-api')->user()->id))
        {
-        return $this->APIResponse(null, "you have to login", 400);
+        return $this->APIResponse(null, "you have to login", 401);
        }
         $doctor = Doctor::find(Auth::guard('doctor-api')->user()->id);
       

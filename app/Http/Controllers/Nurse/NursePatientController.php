@@ -93,6 +93,7 @@ class NursePatientController extends Controller
     {
         $patient = Patient::find($id);
         if(isset($patient)){
+            Visit::where('patient_id' , $id )->delete();
             $patient->delete();
         }
         else

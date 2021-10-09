@@ -15,7 +15,7 @@ class Patient extends Model
         return $this->hasMany(Teeth::class , 'patient_id');
     }
     public function visits(){
-        return $this->hasMany(Visit::class , 'patient_id')->limit(10);
+        return $this->hasMany(Visit::class , 'patient_id')->orderBy('date','DESC')->limit(10);
     }
     public function user(){
         return $this->belongsTo(User::class);
