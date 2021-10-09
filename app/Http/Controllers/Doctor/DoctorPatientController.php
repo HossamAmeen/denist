@@ -197,9 +197,18 @@ class DoctorPatientController extends Controller
                                             ->orderBy('id','DESC')
                                             ->first();
             $teeth = Teeth::where('id' , $operation->teeth_id)->first();
-             $teeth = $teeth->update([
-            'status'=>$lastoperation->operation,
-             ]);
+            if(isset($lastoperation)){
+                $teeth = $teeth->update([
+                    'status'=>$lastoperation->operation,
+                     ]);
+                }
+            
+             else{
+                $teeth = $teeth->update([
+                    'status'=>$ $teeth->initial_status,
+                     ]);
+                }
+            
             $operation->delete();  
             return $this->APIResponse(null, null, 200);
         }
