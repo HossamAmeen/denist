@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class TeethOperation extends Model
 {
      use SoftDeletes;
-     protected $fillable = ['operation', 'cost' , 'patient_id','visit_id' , 'teeth_id'];
+     protected $fillable = ['operation','color', 'cost' , 'patient_id','visit_id' , 'teeth_id'];
      protected $hidden = [
          'user_id',"created_at" , 'updated_at','deleted_at' 
     ];

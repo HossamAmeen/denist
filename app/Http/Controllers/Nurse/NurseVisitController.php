@@ -39,7 +39,11 @@ class NurseVisitController extends Controller
           
             $visits = $visits->where('nurse_id' , request('nurse_id') );
         }
-        $visits = $visits->with(['patient','nurse','doctor'])->orderBy('id' , 'DESC')->get();
+        $visits = $visits->with(['patient','nurse','doctor','operations'])->orderBy('id' , 'DESC')->get();
+        foreach($visits as $visit){
+            $visit['total_cost'] =  $visit->operations->sum('cost');
+        }
+
         return $this->APIResponse($visits, null, 200);
     }
 

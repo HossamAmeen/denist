@@ -24,7 +24,7 @@ class Visit extends Model
         return $this->belongsTo(Nurse::class)->select(['id','name']);;
     }
     public function operations(){
-        return $this->hasMany(TeethOperation::class , 'visit_id')->select(['id','visit_id','operation','cost']);;
+        return $this->hasMany(TeethOperation::class , 'visit_id')->select(['id','visit_id','operation','cost']);
     }
     public function totalCost(){
         return $this->hasMany(TeethOperation::class , 'visit_id');

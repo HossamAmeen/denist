@@ -58,39 +58,50 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\Operation::create([
             "name"=> "حشو",
+            'color'=>"below"
         ]);
         \App\Models\Operation::create([
             "name"=> "علاج جذور",
+            'color'=>"green"
         ]);
 
         \App\Models\Operation::create([
             "name"=> "خلع",
+            'color'=>"red"
         ]);
-
+        \App\Models\Operation::create([
+            "name"=> "طربوش",
+            'color'=>"yeloow"
+        ]);
         \App\Models\Operation::create([
             "name"=> "simple",
             "cost"=>100,
-            "operation_id"=>3
+            "operation_id"=>1
         ]);
         \App\Models\Operation::create([
             "name"=> "impaction",
             "cost"=>100,
-            "operation_id"=>3
+            "operation_id"=>1
         ]);
 
-        \App\Models\Operation::create([
-            "name"=> "طربوش",
-        ]);
+        
         \App\Models\Operation::create([
             "name"=> "PFM",
             "cost"=>100,
-            "operation_id"=>4
+            "operation_id"=>2
         ]);
         \App\Models\Operation::create([
             "name"=> "Ziscer",
             "cost"=>300,
-            "operation_id"=>4
+            "operation_id"=>3
         ]);
+        \App\Models\Operation::create([
+            "name"=> "tarboush 2",
+            "cost"=>300,
+            "operation_id"=>4
+            
+        ]);
+
         \App\Models\Patient::create([
             "name"=> "Hossam",
             'phone'=>"01010079798",

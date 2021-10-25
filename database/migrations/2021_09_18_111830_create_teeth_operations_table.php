@@ -17,7 +17,7 @@ class CreateTeethOperationsTable extends Migration
             $table->id();
             $table->string('operation')->nullable();
             $table->double('cost')->nullable();   
-
+            $table->double('discount')->nullable();
             $table->bigInteger('patient_id')->unsigned()->nullable();
             $table->foreign('patient_id')->references('id')->on('patients')->onDelete('set null');
             

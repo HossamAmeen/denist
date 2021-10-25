@@ -67,18 +67,3 @@ Route::middleware('cors')->group(function () {
 });
 
 
-/**
- * 
- * 
- *  $patient = Patient::where('id' , $id );
-        if(request('phone') != null){
-        $patient = $patient->orWhere('phone' , 'LIKE', '%' . request('phone') . '%' );
-        }
-        $patient = $patient->first();
-        // return $patient;
-        if(isset($patient)){
-            return $this->APIResponse($patient, null, 200);
-        }
-        return $this->APIResponse(null, "not found", 200);
-
- */
