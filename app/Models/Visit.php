@@ -15,7 +15,7 @@ class Visit extends Model
         return $this->belongsTo(User::class);
     }
     public function patient(){
-        return $this->belongsTo(Patient::class)->select(['id','name','phone']);;
+        return $this->belongsTo(Patient::class)->select(['id','name','phone','wallet']);;
     }
     public function doctor(){
         return $this->belongsTo(Doctor::class)->select(['id','name']);;

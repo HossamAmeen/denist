@@ -95,6 +95,20 @@ class NurseVisitController extends Controller
             return $this->APIResponse(null, "this visit not found", 500);
         }
     }
+    public function payVisit($visitId)
+    {
+        $visit = Visit::find($visitId);
+        if(!isset($visit)){
+            return $this->APIResponse(null, "this visit not found", 500);
+        }
+            $visit->update([
+                'piad' => request('piad')
+            ]);
+            // return $visit->patient ;
+            $visit->patient->wallet =  request('piad') - $visit->operations->sum('cost') ;
+            $visit->patient->save();
+            return $this->APIResponse(null, null, 200);
+    }
     public function showDoctors()
     {
         $doctors = Doctor::get(['id','name']);

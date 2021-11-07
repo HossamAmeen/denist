@@ -18,6 +18,7 @@ class CreatePatientsTable extends Migration
             $table->string('name');
             $table->string('phone');
             $table->integer('age');
+            $table->double('wallet')->default(0);
             $table->string('address');
             $table->string('national_id')->nullable();
             $table->text('medical_history')->nullable();
