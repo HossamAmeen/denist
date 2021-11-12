@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "32620315-5374-4950-8015-66eefc644e17",
-		"name": "clinic",
+		"_postman_id": "15b09a53-2f89-4ed5-9837-46c148442b72",
+		"name": "dentist",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -580,7 +580,7 @@
 											"bearer": [
 												{
 													"key": "token",
-													"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYmNhMTRmZThiZWVmOWQ3ZTY5YWIxYWE3ZTZkNWJkZGEwYjY3ZWY3ZGRkMDJhMjBjMmUxZmYzMWQ0NzExYTJhZGI2OGVlODEzOWRkYzMzMmMiLCJpYXQiOjE2MzM1NTc4MTAuNjEyMzc0LCJuYmYiOjE2MzM1NTc4MTAuNjEyMzksImV4cCI6MTY2NTA5MzgxMC42MDAwNzYsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.AueXc1KXt8lg_imTqQRakKTKTdjIvieSPD9yeJYyhdwfMOggKzEpI6ZcQVh4RiqjpphHWNAON3mEiQ8hA4Qm3ySICt1penf8LB9kNFw4BVyZThV-POsR5jpz05pZvX8rdP6n1YAXl1br_QLckLpHIEam2AbzWnVyS67Bp6ZNDe_grq_3RtboLso65bIptJqbW17K3zEt85IprX2c3CLgALVxwgAvRtTZxg7yis5wmvinNMVvAwv_iaCtyZIrPu4AeG23t_wGhMuc7QcyigxB-4SDHyRn_8z5T7pcdnegtQccHd5g7qdvfWeEXn_Nh11dkP3uaw2IUkRStt8ySscsT1vHB2SoZ9CnUQ6OaEWf2KBh0mGm09KjyUrirVwR0R7PCdC7v-g0hvYeHFBKXPKVhDDn7BIi4N42r2iHXs6uGg5zPedsQRTWe2vKbxonymYhgZac3cTF6IppiTf0Ikm52iAMelJorxzsX8sw2Pp9_uJBvmR2SMPFinmD0Nb-beirznr9DvlbJQdAfTEtDNBmR0FFJx2JURodTBivXZ6CVOGA0MKeY6m7m9U23UuHIaUvzPM-l4hfoTlHAwXdwHixxYzxsIde6sPxNOGA2Nywuavn3wuXkaeCX2GAAk1iD_ZIyNAj_YLL97waP1q8xXc75cjTUp4QG-SOXv5Um5arZ00",
+													"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiN2E1MzkxZjVhMDViODZiZjcxOThmY2EwOTVlM2U3ZGViMTk2YTc4M2UxMjE3NGY4NzQyY2MxM2Q4NTA2YjIzMjFiNTMyNDQ2NjQ3Njc5MzciLCJpYXQiOjE2MzUxNDU0NDEuMzg3NTU2LCJuYmYiOjE2MzUxNDU0NDEuMzg3NTYyLCJleHAiOjE2NjY2ODE0NDEuMjY4NjkxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.k-dvFCTy5FUQAimG4cigzU6wRlsT7UmpWnCG8AcMQX9qe_qKh2aXfwy36tkMJK9D0b0m3qNkc-COdxlT1ycXqa8OVF7WkNy08JoC6vD_TiNDNzLVA7cohE8_V_FtaRd8ungV_x91W64qOnJvj10Ldf9CTFVG-fHnNoWgKgWFWIcOIS9EwKfRbxD8V0Ufw94uMszxdW2UvPT-4uspYa2NKS3KFyaK0uHKtHKDxqgM7jCljyG5hLM9K3jnC1-20UuBp6hOm5BP_dsLzeMikGmjVMFS_qI3pZ9y78NmLvL7CiGAj0CXtaWko7r_L1_Sy9rswxqyqvsoKgKdS2F5NRK8Tu6HaFMOzidITUKaKgoeZq6u0t-pbfkepSFGKdt59JHvG4ZLZ9Y7qs_XDiP6bhd6ZxGc0yUIzPG0o2SKdxvGARC3fPAiiNDw1EVm7NM2CUw5l7X11CWe-qtBUXDIe7RbwD9fumITV3Ie9tnouWD3RrB0kFrVZ4fK-ip7_Euxv7s_xSIzkFoPMK9tM2yKsDQED29HbfOlr2nMptxwuM8bhtIzY5uu_54W9YfnNo-DFCbDqyrEDQIn9Ctn9mxVb2icFLn2vPdT8FSnSNHJEmVlEs-F7Li6hidM4zopij1PcOqsqgNr3OhV6BwRc5TLd5dGTYDZaZD2QmoHhxGmnjBvlSs",
 													"type": "string"
 												}
 											]
@@ -592,7 +592,7 @@
 											"formdata": [
 												{
 													"key": "operation",
-													"value": "repair",
+													"value": "repairs",
 													"type": "text"
 												},
 												{
@@ -607,7 +607,7 @@
 												},
 												{
 													"key": "patient_id",
-													"value": "",
+													"value": "1",
 													"type": "text"
 												}
 											]
@@ -781,6 +781,31 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "delete operation of teeth",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://127.0.0.1:8000/api/doctor/operation-teeth/1",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"doctor",
+												"operation-teeth",
+												"1"
+											]
+										}
+									},
+									"response": []
 								}
 							]
 						},
@@ -848,6 +873,41 @@
 										"api",
 										"doctor",
 										"show-visit-detials",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "set status of teeth for patient (patient id)",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "status",
+											"value": "cacus",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/doctor/set-teeth-status/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"doctor",
+										"set-teeth-status",
 										"1"
 									]
 								}
@@ -1012,7 +1072,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYmNhMTRmZThiZWVmOWQ3ZTY5YWIxYWE3ZTZkNWJkZGEwYjY3ZWY3ZGRkMDJhMjBjMmUxZmYzMWQ0NzExYTJhZGI2OGVlODEzOWRkYzMzMmMiLCJpYXQiOjE2MzM1NTc4MTAuNjEyMzc0LCJuYmYiOjE2MzM1NTc4MTAuNjEyMzksImV4cCI6MTY2NTA5MzgxMC42MDAwNzYsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.AueXc1KXt8lg_imTqQRakKTKTdjIvieSPD9yeJYyhdwfMOggKzEpI6ZcQVh4RiqjpphHWNAON3mEiQ8hA4Qm3ySICt1penf8LB9kNFw4BVyZThV-POsR5jpz05pZvX8rdP6n1YAXl1br_QLckLpHIEam2AbzWnVyS67Bp6ZNDe_grq_3RtboLso65bIptJqbW17K3zEt85IprX2c3CLgALVxwgAvRtTZxg7yis5wmvinNMVvAwv_iaCtyZIrPu4AeG23t_wGhMuc7QcyigxB-4SDHyRn_8z5T7pcdnegtQccHd5g7qdvfWeEXn_Nh11dkP3uaw2IUkRStt8ySscsT1vHB2SoZ9CnUQ6OaEWf2KBh0mGm09KjyUrirVwR0R7PCdC7v-g0hvYeHFBKXPKVhDDn7BIi4N42r2iHXs6uGg5zPedsQRTWe2vKbxonymYhgZac3cTF6IppiTf0Ikm52iAMelJorxzsX8sw2Pp9_uJBvmR2SMPFinmD0Nb-beirznr9DvlbJQdAfTEtDNBmR0FFJx2JURodTBivXZ6CVOGA0MKeY6m7m9U23UuHIaUvzPM-l4hfoTlHAwXdwHixxYzxsIde6sPxNOGA2Nywuavn3wuXkaeCX2GAAk1iD_ZIyNAj_YLL97waP1q8xXc75cjTUp4QG-SOXv5Um5arZ00",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYzExYjllY2IyN2M4YmU1MDNiMDlkNzA0NWU3OTRjZDhiZGUzYTU1MDc4N2M1ZjI3ZjA2YjY5YjczMjI4MWIwYzY5MTcwOTE5NjY3ZDlhMDEiLCJpYXQiOjE2MzM3ODc0MDIuMzIxMTAzLCJuYmYiOjE2MzM3ODc0MDIuMzIxMTA5LCJleHAiOjE2NjUzMjM0MDIuMjYyMTM4LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.KvrIVNl-U4nRX-K58rFHzj-hGbxvI8PPTpSU1z0KMDQgJcFSEa8ntBZS4hpomhaNTt-v9roe89z2wuuRLUGd3K_KVBsrYJm3W-2AMhfVgrnfjTBKhDRP-RxyiQK4BjkJaUHXHO1oZ2-mJCjJGRZtvNcAYTQ-v7yaaHRUhct8dwwBgL2RbwXTa_fkQt2jhVJAEcJpFfQ9SY0u4Ncd90uSYALeDJhFXlqwIiv0xt-g4XlVW-IafHAMWL1V4-5u_Gz1hO6WfHy3-p_YFK05YVS0DKOGVgEoxCD4q3Yqfl4IYNCICffI1L7YogDTWRrqm8o6CzjouvEFltlO94TICgPBmB4wlSPlh_9O8mS3jYCj_Ll4jukuVLy1-gGRbklBQOBokdyYSDBQgVwlULHCAuNMxNYPcIBeIYO4GAHAqNVTvmYHmYNXd3fK37JpgdQCflxexl0oPpjU6Cr_rCQxii_7zUGy6sl9jqOPDAjhqD3fsVc9RM9nNOwxYlc2nZgp2qLpIzzzvb0QY859pA-EZglzseBYU_MVM0Ahe7GhEhr2fMxN1PVKHiUUwojC7PJHJjqGOwz-7aOKJjoZ2DTnltdclnGR5hQdC1X305UVGKZof0lrjmOOmtHCQmqAlwRHnOMBJvS0TYkKG3nEN8v8BRZHi94KTR7MBxQB8LKp2GJWEk8",
 											"type": "string"
 										}
 									]

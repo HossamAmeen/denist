@@ -101,7 +101,18 @@ class DoctorPatientController extends Controller
             return $this->APIResponse(null, null, 200);
         
     }
-    
+
+    public function setStatusofTeeth(Request $request , $patientId)
+    {
+
+            $patient = Patient::find($patientId);
+            $patient->teeths()->update([
+                'status'=>$request['status'],
+            ]);            
+            // $patient->teeths()->save();
+            return $this->APIResponse(null, null, 200);
+        
+    }
     public function showPatientVisits($patientId)
     {
         if(!isset(Auth::guard('doctor-api')->user()->id))

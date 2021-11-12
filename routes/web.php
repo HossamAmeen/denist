@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return redirect()->route('login');
- });
+// Route::get('/', function () {
+//     return redirect()->route('login');
+//  });
 Route::prefix('admin')->namespace('DashBoard')->group(function(){
     // Route::get('/' , 'AuthAdminController@login');
     // Route::middleware('auth')->group(function () {

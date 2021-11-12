@@ -102,10 +102,10 @@ class NurseVisitController extends Controller
             return $this->APIResponse(null, "this visit not found", 500);
         }
             $visit->update([
-                'piad' => request('piad')
+                'paid' => request('paid')
             ]);
             // return $visit->patient ;
-            $visit->patient->wallet =  request('piad') - $visit->operations->sum('cost') ;
+            $visit->patient->wallet =  request('paid') - $visit->operations->sum('cost') ;
             $visit->patient->save();
             return $this->APIResponse(null, null, 200);
     }
