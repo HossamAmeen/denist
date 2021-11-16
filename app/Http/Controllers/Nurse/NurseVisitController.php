@@ -66,9 +66,26 @@ class NurseVisitController extends Controller
             
         }
         // return $visit;
+        if(isset($request->paid)){
+            // return "tesT";
+            // if($request->paid == $visit->operations->sum('cost'))
+            //     $visit->patient->wallet -=  $request->paid - $visit->paid ;
+            // elseif($request->paid < $visit->operations->sum('cost')){
+            //     $visit->patient->wallet += 0;
+            // }
+            if($visit->paid == 0 ){
+                $visit->patient->wallet += $visit->operations->sum('cost') - $request->paid;
+            }else{
+                $oldVisitPaid = $visit->operations->sum('cost') - $visit->paid;
+                $visit->patient->wallet -=  $oldVisitPaid ;
+                $visit->patient->wallet += $visit->operations->sum('cost') - $request->paid;
+            }
+           
+            $visit->patient->save();
+        }
         $visit->update($request->all());
-        // return $visit;
-        return $this->APIResponse(null, null, 200);
+        
+        return $this->APIResponse($visit->patient, null, 200);
     }
 
     public function show($id)
