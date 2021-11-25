@@ -79,6 +79,7 @@ class NurseVisitController extends Controller
                 $oldVisitPaid = $visit->operations->sum('cost') - $visit->paid;
                 $visit->patient->wallet -=  $oldVisitPaid ;
                 $visit->patient->wallet += $visit->operations->sum('cost') - $request->paid;
+
             }
            
             $visit->patient->save();
@@ -86,6 +87,18 @@ class NurseVisitController extends Controller
         $visit->update($request->all());
         
         return $this->APIResponse($visit->patient, null, 200);
+    }
+    
+    public function paidDbet($id)
+    {
+        $patient = Patient::find($id);
+       
+        if(! isset($patient)){
+            return $this->APIResponse(null, "this patient not found", 500);
+        }
+        
+        $patient->update(['wallet'=>0]); 
+        return $this->APIResponse(null, null, 200);
     }
 
     public function show($id)

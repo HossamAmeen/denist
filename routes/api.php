@@ -37,6 +37,7 @@ Route::middleware('cors')->group(function () {
                                 /////////////// nurse with patients
                 Route::resource('patients' ,'NursePatientController' );  
                 Route::put('pay-visit/{visitID}', 'NurseVisitController@payVisit');   
+                Route::put('pay-debet/{patientId}', 'NurseVisitController@paidDbet');  
         });
         Route::prefix('doctor')->namespace('Doctor')->group(function(){
 
